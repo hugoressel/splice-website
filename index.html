@@ -70,7 +70,7 @@ body {
 
 .intro-logo {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(60px, 12vw, 120px);
+  font-size: clamp(36px, 11vw, 120px);
   font-weight: 800;
   letter-spacing: 0.12em;
   display: flex;
@@ -102,19 +102,30 @@ body {
   color: var(--grey-light);
   margin-top: 18px;
   opacity: 0;
+  text-align: center;
+  padding: 0 24px;
   animation: fadeUp 0.5s ease 1.1s forwards;
 }
 
 .intro-counter {
   position: absolute;
-  bottom: 48px;
-  right: 48px;
+  bottom: 32px;
+  right: 24px;
   font-family: 'Syne', sans-serif;
   font-size: 11px;
   letter-spacing: 0.1em;
   color: var(--grey-mid);
   opacity: 0;
   animation: fadeUp 0.3s ease 0.5s forwards;
+}
+
+@media (max-width: 480px) {
+  .intro-sub {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    padding: 0 20px;
+  }
+  .intro-rule { max-width: 60vw; }
 }
 
 #intro.exit {
@@ -920,7 +931,7 @@ section { padding: 120px 0; }
 
 .pack-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 4px; }
 .pack-tagline { font-size: 13px; color: var(--grey-light); font-style: italic; margin-bottom: 20px; }
-.pack-price { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+.pack-price { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 4px; white-space: nowrap; }
 .pack-price-note { font-size: 11px; color: var(--grey-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
 .pack-list { list-style: none; font-size: 13px; line-height: 1.9; }
 .pack-list li { color: var(--grey-text); display: flex; gap: 8px; align-items: baseline; }
@@ -946,7 +957,7 @@ section { padding: 120px 0; }
 
 .forfait-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; margin-bottom: 4px; }
 .forfait-sub { font-size: 12px; color: var(--grey-light); margin-bottom: 20px; font-style: italic; }
-.forfait-price { font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+.forfait-price { font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 4px; white-space: nowrap; }
 .forfait-price-note { font-size: 11px; color: var(--grey-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; }
 .forfait ul { list-style: none; font-size: 13px; line-height: 2; }
 .forfait li { display: flex; gap: 8px; align-items: baseline; color: var(--grey-text); }
@@ -1112,161 +1123,6 @@ footer {
   .terrain-detail-grid { grid-template-columns: 1fr; }
 }
 
-/* ====================================================
-   DATA & PERFORMANCE
-==================================================== */
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--gold-border);
-  border: 1px solid var(--gold-border);
-  margin-top: 56px;
-}
-.metric-card {
-  background: var(--black);
-  padding: 32px 28px;
-  position: relative;
-  transition: background 0.3s;
-  overflow: hidden;
-}
-.metric-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  transform: scaleX(0);
-  transition: transform 0.4s var(--ease);
-}
-.metric-card:hover { background: rgba(200,169,110,0.03); }
-.metric-card:hover::after { transform: scaleX(1); }
-.metric-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
-}
-.metric-pole {
-  font-family: 'Syne', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  padding: 3px 8px;
-  border: 1px solid var(--gold-border);
-  background: var(--gold-dim);
-}
-.metric-live {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 8px rgba(109,191,126,0.5);
-  animation: metricPulse 2.5s ease infinite;
-}
-@keyframes metricPulse {
-  0%,100% { opacity: 1; box-shadow: 0 0 8px rgba(109,191,126,0.5); }
-  50%      { opacity: 0.6; box-shadow: 0 0 14px rgba(109,191,126,0.8); }
-}
-.metric-label {
-  font-family: 'Syne', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--grey-light);
-  margin-bottom: 12px;
-}
-.metric-value {
-  font-family: 'Syne', sans-serif;
-  font-size: 50px;
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 10px;
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-}
-.metric-unit { font-size: 26px; color: var(--gold); margin-left: 1px; }
-.metric-delta {
-  font-size: 12px;
-  color: var(--green);
-  margin-bottom: 5px;
-  font-weight: 500;
-}
-.metric-sub {
-  font-size: 11px;
-  color: var(--grey-mid);
-  letter-spacing: 0.04em;
-  font-style: italic;
-}
-
-/* TERMINAL */
-.terminal {
-  background: #0d0d0d;
-  border: 1px solid var(--gold-border);
-  overflow: hidden;
-  margin-top: 24px;
-}
-.terminal-bar {
-  background: rgba(200,169,110,0.06);
-  padding: 11px 16px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  border-bottom: 1px solid var(--gold-border);
-}
-.tb-dot { width: 11px; height: 11px; border-radius: 50%; }
-.tb-red    { background: rgba(231,76,60,0.75); }
-.tb-yellow { background: rgba(243,156,18,0.75); }
-.tb-green  { background: rgba(46,204,113,0.75); }
-.tb-title {
-  font-family: 'Courier New', monospace;
-  font-size: 11px;
-  color: var(--grey-light);
-  margin-left: 8px;
-  letter-spacing: 0.05em;
-}
-.terminal-body {
-  padding: 20px 24px 24px;
-  font-family: 'Courier New', monospace;
-  font-size: 12.5px;
-  line-height: 2;
-}
-.t-line { display: flex; gap: 10px; }
-.t-prompt { color: var(--gold); flex-shrink: 0; }
-.t-cmd { color: #c8c4bc; }
-.t-out { color: #4d4d4d; padding-left: 20px; gap: 0; }
-.t-hi { color: var(--gold); font-weight: bold; }
-.t-success { color: rgba(109,191,126,0.65); }
-.t-success .t-hi { color: var(--green); font-weight: bold; }
-.t-cursor {
-  display: inline-block;
-  width: 8px; height: 14px;
-  background: var(--gold);
-  vertical-align: middle;
-  animation: termBlink 1s step-end infinite;
-}
-@keyframes termBlink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-
-/* MARQUEE INVERSÉ (tech stack) */
-.marquee-track-inv { animation: marquee 26s linear infinite reverse; }
-.marquee-wrap-inv .marquee-item {
-  color: rgba(200,169,110,0.42);
-  font-size: 11px;
-  letter-spacing: 0.3em;
-}
-.marquee-wrap-inv .marquee-item::after { color: rgba(200,169,110,0.2); }
-
-@media (max-width: 900px) {
-  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .metrics-grid { grid-template-columns: 1fr; }
-  .metric-value { font-size: 40px; }
-  .terminal-body { font-size: 11px; padding: 16px; }
-}
 
 </style>
 </head>
@@ -1369,36 +1225,6 @@ footer {
   </div>
 </div>
 
-<!-- MARQUEE TECH STACK (inversé) -->
-<div class="marquee-wrap marquee-wrap-inv">
-  <div class="marquee-track marquee-track-inv">
-    <span class="marquee-item">TikTok for Business</span>
-    <span class="marquee-item">Meta Ads Manager</span>
-    <span class="marquee-item">Google Analytics 4</span>
-    <span class="marquee-item">Google My Business API</span>
-    <span class="marquee-item">Lightspeed POS</span>
-    <span class="marquee-item">TheFork Business</span>
-    <span class="marquee-item">Tripadvisor Pro</span>
-    <span class="marquee-item">Zenchef</span>
-    <span class="marquee-item">CapCut Pro</span>
-    <span class="marquee-item">Adobe Suite</span>
-    <span class="marquee-item">Obypay QR</span>
-    <span class="marquee-item">ChatGPT API</span>
-    <span class="marquee-item">TikTok for Business</span>
-    <span class="marquee-item">Meta Ads Manager</span>
-    <span class="marquee-item">Google Analytics 4</span>
-    <span class="marquee-item">Google My Business API</span>
-    <span class="marquee-item">Lightspeed POS</span>
-    <span class="marquee-item">TheFork Business</span>
-    <span class="marquee-item">Tripadvisor Pro</span>
-    <span class="marquee-item">Zenchef</span>
-    <span class="marquee-item">CapCut Pro</span>
-    <span class="marquee-item">Adobe Suite</span>
-    <span class="marquee-item">Obypay QR</span>
-    <span class="marquee-item">ChatGPT API</span>
-  </div>
-</div>
-
 <!-- CONCEPT -->
 <div class="wrap">
 <section id="concept">
@@ -1479,104 +1305,6 @@ footer {
       <div class="process-step-title">Démarrage en 48h.<br>Résultats mesurables.</div>
       <div class="process-step-body">Onboarding rapide, objectifs posés, KPIs définis dès le départ. Vous recevez un rapport mensuel avec ce qui fonctionne et ce qu'on améliore.</div>
       <div class="process-step-detail">Reporting mensuel systématique</div>
-    </div>
-  </div>
-</section>
-</div>
-
-<!-- DATA & PERFORMANCE -->
-<div class="wrap">
-<section id="data">
-  <div class="section-label reveal">03 — Data &amp; Performance</div>
-  <h2 class="section-title reveal d1">Piloté par la data.<br>Mesuré sur le terrain.</h2>
-  <p class="section-sub reveal d2">On ne navigue pas à vue. Chaque décision est basée sur des chiffres réels — les vôtres. Voici ce qu'on suit, ce qu'on améliore, et ce qu'on vous livre chaque mois.</p>
-
-  <div class="metrics-grid reveal d2">
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-pole">Pôle Terrain</span>
-        <span class="metric-live"></span>
-      </div>
-      <div class="metric-label">Food Cost Ratio</div>
-      <div class="metric-value">28<span class="metric-unit">%</span></div>
-      <div class="metric-delta">↓ −3.2 pts après optimisation</div>
-      <div class="metric-sub">Cible recommandée : &lt;30% · suivi mensuel</div>
-    </div>
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-pole">Pôle Terrain</span>
-        <span class="metric-live"></span>
-      </div>
-      <div class="metric-label">Score Google</div>
-      <div class="metric-value">4.8<span class="metric-unit">★</span></div>
-      <div class="metric-delta">↑ +0.7 étoile en 3 mois</div>
-      <div class="metric-sub">Corrélé à +9% de CA (Harvard Business Review)</div>
-    </div>
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-pole">Pôle Site</span>
-        <span class="metric-live"></span>
-      </div>
-      <div class="metric-label">Taux de réservation</div>
-      <div class="metric-value">68<span class="metric-unit">%</span></div>
-      <div class="metric-delta">↑ +40 pts via canaux digitaux</div>
-      <div class="metric-sub">Réservations en ligne vs. téléphone uniquement</div>
-    </div>
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-pole">Pôle Vidéo</span>
-        <span class="metric-live"></span>
-      </div>
-      <div class="metric-label">Reach organique</div>
-      <div class="metric-value">184<span class="metric-unit">K</span></div>
-      <div class="metric-delta">↑ +340% vs. avant SPLICE</div>
-      <div class="metric-sub">Vues mensuelles cumulées · TikTok + Reels</div>
-    </div>
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-pole">Pôle Vidéo</span>
-        <span class="metric-live"></span>
-      </div>
-      <div class="metric-label">Taux de remplissage</div>
-      <div class="metric-value">89<span class="metric-unit">%</span></div>
-      <div class="metric-delta">↑ +23 pts en 8 semaines</div>
-      <div class="metric-sub">Vendredi · Samedi · Dimanche soir</div>
-    </div>
-
-    <div class="metric-card">
-      <div class="metric-header">
-        <span class="metric-pole">Pôle Terrain</span>
-        <span class="metric-live"></span>
-      </div>
-      <div class="metric-label">Ticket moyen</div>
-      <div class="metric-value">+22<span class="metric-unit">%</span></div>
-      <div class="metric-delta">↑ formation vente additionnelle</div>
-      <div class="metric-sub">Résultat post-coaching équipe salle</div>
-    </div>
-
-  </div>
-
-  <div class="terminal reveal d3">
-    <div class="terminal-bar">
-      <span class="tb-dot tb-red"></span>
-      <span class="tb-dot tb-yellow"></span>
-      <span class="tb-dot tb-green"></span>
-      <span class="tb-title">splice-analytics · Luxembourg · monitoring en cours</span>
-    </div>
-    <div class="terminal-body">
-      <div class="t-line"><span class="t-prompt">›</span>&nbsp;<span class="t-cmd">run audit --target "Restaurant Client" --mode full --output monthly-report</span></div>
-      <div class="t-line t-out">✓ Google My Business&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-hi">optimisé</span> · fiche complète à 100% · photos &amp; horaires à jour</div>
-      <div class="t-line t-out">✓ Food cost ratio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-hi">28.4%</span> · cible atteinte · ↓ depuis 31.6% en M-1</div>
-      <div class="t-line t-out">✓ TikTok + Reels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-hi">184K vues</span> · +340% reach organique · 3 contenus/sem.</div>
-      <div class="t-line t-out">✓ Avis Google&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-hi">4.8★</span> · 47 nouveaux avis ce mois · réponses 100%</div>
-      <div class="t-line t-out">✓ Réservations en ligne&nbsp;<span class="t-hi">68%</span> du total · site converti · 0 friction</div>
-      <div class="t-line t-out t-success">— Rapport mensuel généré&nbsp;·&nbsp;envoi client <span class="t-hi">programmé le 1er du mois</span></div>
-      <div class="t-line"><span class="t-prompt">›</span>&nbsp;<span class="t-cursor"></span></div>
     </div>
   </div>
 </section>
@@ -1807,7 +1535,7 @@ footer {
       <div class="terrain-forfait rot-border shimmer">
         <div class="forfait-name">Accompagnement Terrain</div>
         <div class="forfait-sub" style="margin-top:4px;">Présence physique mensuelle · Engagement 1 mois renouvelable</div>
-        <div class="forfait-price" style="font-size:52px;margin-top:24px;">2 200€</div>
+        <div class="forfait-price" style="font-size:clamp(32px,8vw,52px);margin-top:24px;">2&nbsp;200€</div>
         <div class="forfait-price-note">/ mois HT · sans engagement long terme</div>
         <div class="terrain-detail-grid">
           <div class="terrain-detail-item">Présence physique 8h/semaine pendant 1 mois</div>
