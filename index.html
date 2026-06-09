@@ -969,6 +969,91 @@ section { padding: 120px 0; }
 .note-box { background: var(--gold-dim); border: 1px solid var(--gold-border); border-left: 3px solid var(--gold); padding: 20px 24px; border-radius: 2px; margin-top: 28px; font-size: 14px; color: var(--grey-text); line-height: 1.7; }
 .note-box strong { color: var(--white); font-weight: 500; }
 
+/* ====================================================
+   PROMO PRICING
+==================================================== */
+.promo-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #E84B0F 0%, #FF7A35 100%);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 16px rgba(232,75,15,0.4);
+  animation: promoTagPulse 2.5s ease infinite;
+}
+.promo-tag::before { content: '★'; font-size: 10px; }
+
+@keyframes promoTagPulse {
+  0%, 100% { box-shadow: 0 4px 16px rgba(232,75,15,0.4), 0 0 0 0 rgba(232,75,15,0); }
+  50%       { box-shadow: 0 6px 28px rgba(232,75,15,0.7), 0 0 0 6px rgba(232,75,15,0.15); }
+}
+
+.pack-price-old {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--grey-mid);
+  text-decoration: line-through;
+  text-decoration-color: rgba(220,60,60,0.9);
+  text-decoration-thickness: 2px;
+  display: block;
+  margin-bottom: 2px;
+  opacity: 0.7;
+}
+
+.pack-promo-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.pack-price-promo {
+  font-family: 'Syne', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #FF8C42 0%, #E84B0F 55%, #FF6B35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: promoPriceGlow 3s ease infinite;
+}
+
+@keyframes promoPriceGlow {
+  0%, 100% { filter: drop-shadow(0 0 0px rgba(232,75,15,0)); }
+  50%       { filter: drop-shadow(0 0 16px rgba(232,75,15,0.65)); }
+}
+
+.promo-saving {
+  display: inline-block;
+  background: rgba(232,75,15,0.15);
+  border: 1px solid rgba(232,75,15,0.4);
+  color: #FF7A35;
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  animation: promoBadgeBlink 4s ease infinite;
+}
+
+@keyframes promoBadgeBlink {
+  0%, 85%, 100% { opacity: 1; }
+  90%            { opacity: 0.5; }
+  95%            { opacity: 1; }
+}
+
 /* Terrain */
 .terrain-forfait { border: 1px solid var(--gold); background: rgba(200,169,110,0.04); padding: 48px 40px; border-radius: 2px; max-width: 620px; }
 .terrain-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -1333,7 +1418,7 @@ footer {
       <div class="pole-tags">
         <span>Site sur mesure</span><span>Réservation en ligne</span><span>SEO local</span><span>Google My Business</span>
       </div>
-      <div class="pole-price-hint">À partir de <strong>1 500€</strong> · Packs uniques + suivi annuel</div>
+      <div class="pole-price-hint">À partir de <strong>1 200€</strong> <span class="promo-saving" style="font-size:9px;padding:2px 6px;">PROMO</span> · Packs uniques + suivi annuel</div>
     </div>
 
     <div class="pole-card featured rot-border shimmer">
@@ -1393,7 +1478,12 @@ footer {
       <div class="pack-card shimmer bracket">
         <div class="pack-name">Pack Essentiel</div>
         <div class="pack-tagline">Lancez votre restaurant avec une présence professionnelle</div>
-        <div class="pack-price">1 500€</div>
+        <div class="promo-tag">Offre promotionnelle</div>
+        <div class="pack-price-old">1 500€</div>
+        <div class="pack-promo-row">
+          <div class="pack-price-promo">1 200€</div>
+          <span class="promo-saving">-20%</span>
+        </div>
         <div class="pack-price-note">HT · Prestation unique</div>
         <ul class="pack-list">
           <li>Site internet 4 à 6 pages</li>
@@ -1404,7 +1494,12 @@ footer {
       <div class="pack-card shimmer bracket">
         <div class="pack-name">Pack Impulse</div>
         <div class="pack-tagline">Remplissez vos tables dès l'ouverture</div>
-        <div class="pack-price">3 000€</div>
+        <div class="promo-tag">Offre promotionnelle</div>
+        <div class="pack-price-old">3 000€</div>
+        <div class="pack-promo-row">
+          <div class="pack-price-promo">2 200€</div>
+          <span class="promo-saving">-27%</span>
+        </div>
         <div class="pack-price-note">HT · Prestation unique</div>
         <ul class="pack-list">
           <li>Site internet 8 à 12 pages</li>
@@ -1418,7 +1513,12 @@ footer {
         <div class="pack-badge">Recommandé</div>
         <div class="pack-name">Pack Élévation</div>
         <div class="pack-tagline">Structurez pour être rentable et régulier</div>
-        <div class="pack-price">4 000€</div>
+        <div class="promo-tag">Offre promotionnelle</div>
+        <div class="pack-price-old">4 000€</div>
+        <div class="pack-promo-row">
+          <div class="pack-price-promo">3 200€</div>
+          <span class="promo-saving">-20%</span>
+        </div>
         <div class="pack-price-note">HT · Prestation unique</div>
         <ul class="pack-list">
           <li>Site internet 8 à 12 pages</li>
@@ -1433,7 +1533,12 @@ footer {
       <div class="pack-card shimmer bracket">
         <div class="pack-name">Pack Signature</div>
         <div class="pack-tagline">Lancement fort · image · remplissage rapide</div>
-        <div class="pack-price">6 000€</div>
+        <div class="promo-tag">Offre promotionnelle</div>
+        <div class="pack-price-old">6 000€</div>
+        <div class="pack-promo-row">
+          <div class="pack-price-promo">5 000€</div>
+          <span class="promo-saving">-17%</span>
+        </div>
         <div class="pack-price-note">HT · Prestation unique</div>
         <ul class="pack-list">
           <li>Site internet complet + réservation</li>
