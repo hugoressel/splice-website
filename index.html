@@ -1394,12 +1394,14 @@ footer {
   .nav-burger { display: flex; }
   .nav-mobile { display: flex; }
   .hero {
-    padding: calc(var(--nav-h) + 40px) 24px 80px;
+    min-height: unset;
+    padding: calc(var(--nav-h) + 40px) 24px 64px;
     justify-content: flex-start;
   }
   .hero-side { display: none; }
   .hero-splice-sign { display: none; }
   .hero-deco { display: none; }
+  .hero-scroll { display: none; }
   .wrap { padding: 0 24px; }
   .stats-band { grid-template-columns: repeat(2, 1fr); }
   .stat-item { border-bottom: 1px solid rgba(200,169,110,0.08); }
