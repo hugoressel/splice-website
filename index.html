@@ -1439,6 +1439,40 @@ footer {
     perspective: 600px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
+  }
+
+  /* Grille dorée — identique au hero */
+  .sign-mobile-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at 50% 50%, black 10%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 10%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Lueur or derrière l'enseigne + scanlines */
+  .sign-mobile-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(200,169,110,0.08) 0%, transparent 65%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Le spinner doit passer au-dessus des pseudo-éléments */
+  .sign-spinner-m {
+    position: relative;
+    z-index: 1;
   }
 
   .sign-spinner-m {
