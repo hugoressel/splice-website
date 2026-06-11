@@ -1399,7 +1399,7 @@ footer {
   }
   .hero-side { display: none; }
   .hero-splice-sign { display: none; }
-  .hero-deco { font-size: 100px; }
+  .hero-deco { display: none; }
   .wrap { padding: 0 24px; }
   .stats-band { grid-template-columns: repeat(2, 1fr); }
   .stat-item { border-bottom: 1px solid rgba(200,169,110,0.08); }
@@ -1426,6 +1426,7 @@ footer {
 
 /* Enseigne mobile — section indépendante hors du hero */
 .sign-mobile-wrap { display: none; }
+.sign-deco-text { display: none; }
 
 @media (max-width: 900px) {
   .hero-splice-sign { display: none !important; }
@@ -1442,6 +1443,26 @@ footer {
     overflow: hidden;
   }
 
+  /* Texte déco SPLICE en arrière-plan */
+  .sign-deco-text {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(90px, 28vw, 150px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(200,169,110,0.07);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
   /* Grille dorée — identique au hero */
   .sign-mobile-wrap::before {
     content: '';
@@ -1454,7 +1475,7 @@ footer {
     mask-image: radial-gradient(ellipse at 50% 50%, black 10%, transparent 80%);
     -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 10%, transparent 80%);
     pointer-events: none;
-    z-index: 0;
+    z-index: 2;
   }
 
   /* Lueur or derrière l'enseigne + scanlines */
@@ -1466,16 +1487,13 @@ footer {
       radial-gradient(ellipse at 50% 50%, rgba(200,169,110,0.08) 0%, transparent 65%),
       repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px);
     pointer-events: none;
-    z-index: 0;
+    z-index: 3;
   }
 
-  /* Le spinner doit passer au-dessus des pseudo-éléments */
+  /* Le spinner passe au-dessus de tout */
   .sign-spinner-m {
     position: relative;
-    z-index: 1;
-  }
-
-  .sign-spinner-m {
+    z-index: 4;
     opacity: 1 !important;
     transition: none !important;
   }
@@ -1588,6 +1606,7 @@ footer {
 
 <!-- ENSEIGNE MOBILE — hors du hero pour éviter overflow:hidden iOS -->
 <div class="sign-mobile-wrap" aria-hidden="true">
+  <div class="sign-deco-text">SPLICE</div>
   <div class="sign-spinner sign-spinner-m">
     <div class="sign-face sign-front">
       <span class="sign-label" data-text="SPLICE">SPLICE</span>
