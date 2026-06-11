@@ -1394,7 +1394,7 @@ footer {
   .nav-burger { display: flex; }
   .nav-mobile { display: flex; }
   .hero {
-    padding: calc(var(--nav-h) + 40px) 24px 160px;
+    padding: calc(var(--nav-h) + 40px) 24px 80px;
     justify-content: flex-start;
   }
   .hero-side { display: none; }
@@ -1424,32 +1424,39 @@ footer {
   .terrain-detail-grid { grid-template-columns: 1fr; }
 }
 
-/* Enseigne mobile — uniquement sur écrans suffisamment hauts */
-@media (max-width: 900px) and (min-height: 720px) {
-  .hero-splice-sign {
-    display: block;
-    position: absolute;
-    bottom: 52px;
-    left: 50%;
-    top: auto;
-    /* translate3d force le GPU layer → corrige le bug iOS scroll */
-    transform: translate3d(-50%, 0, 0);
-    -webkit-transform: translate3d(-50%, 0, 0);
-    perspective: 400px;
-    will-change: transform;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    isolation: isolate;
+/* Enseigne mobile — section indépendante hors du hero */
+.sign-mobile-wrap { display: none; }
+
+@media (max-width: 900px) {
+  .hero-splice-sign { display: none !important; }
+
+  .sign-mobile-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 24px 64px;
+    background: var(--black);
+    perspective: 600px;
+    position: relative;
+    z-index: 1;
   }
-  .sign-front {
-    padding: 12px 20px;
+
+  .sign-spinner-m {
+    opacity: 1 !important;
+    transition: none !important;
   }
-  .sign-label {
-    font-size: clamp(26px, 6.5vw, 38px);
+
+  .sign-mobile-wrap .sign-front {
+    padding: 14px 24px;
+  }
+
+  .sign-mobile-wrap .sign-label {
+    font-size: clamp(30px, 7.5vw, 44px);
     letter-spacing: 0.04em;
   }
-  .sign-label-back {
-    font-size: clamp(18px, 4.5vw, 26px);
+
+  .sign-mobile-wrap .sign-label-back {
+    font-size: clamp(22px, 5.5vw, 30px);
     letter-spacing: 0.03em;
   }
 }
@@ -1542,6 +1549,18 @@ footer {
   <div class="hero-scroll">
     <div class="scroll-line"></div>
     Scroll
+  </div>
+</div>
+
+<!-- ENSEIGNE MOBILE — hors du hero pour éviter overflow:hidden iOS -->
+<div class="sign-mobile-wrap" aria-hidden="true">
+  <div class="sign-spinner sign-spinner-m">
+    <div class="sign-face sign-front">
+      <span class="sign-label" data-text="SPLICE">SPLICE</span>
+    </div>
+    <div class="sign-face sign-back">
+      <span class="sign-label-back">AGENCY</span>
+    </div>
   </div>
 </div>
 
