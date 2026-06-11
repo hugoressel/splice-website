@@ -61,11 +61,21 @@ body {
   gap: 0;
 }
 
+
 .intro-logo-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  z-index: 6;
+}
+
+.intro-rule,
+.intro-sub,
+.intro-counter {
+  position: relative;
+  z-index: 6;
 }
 
 .intro-logo {
@@ -439,6 +449,208 @@ nav.scrolled {
   opacity: 0;
   animation: fadeUp 0.8s var(--ease) 1.4s forwards;
   z-index: 1;
+}
+
+/* SPLICE spinning sign */
+.hero-splice-sign {
+  position: absolute;
+  left: 52%;
+  top: 50%;
+  transform: translateY(-50%);
+  perspective: 900px;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sign-spinner {
+  transform-style: preserve-3d;
+  animation: signSpin 9s linear infinite;
+  opacity: 0;
+  position: relative;
+}
+
+.sign-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.sign-front {
+  padding: 20px 36px;
+  border: 1px solid rgba(200, 169, 110, 0.55);
+  background: rgba(10, 10, 10, 0.55);
+  position: relative;
+  box-shadow:
+    inset 0 0 10px rgba(200,169,110,0.07),
+    0 0  6px rgba(200,169,110,0.55),
+    0 0 18px rgba(200,169,110,0.28),
+    0 0 40px rgba(200,169,110,0.12),
+    0 0 80px rgba(200,169,110,0.05);
+  animation: neonBorderGlow 5s ease-in-out infinite;
+}
+
+@keyframes neonBorderGlow {
+  0%,17%,19%,21%,51%,53%,63%,100% {
+    box-shadow:
+      inset 0 0 10px rgba(200,169,110,0.07),
+      0 0  6px rgba(200,169,110,0.55),
+      0 0 18px rgba(200,169,110,0.28),
+      0 0 40px rgba(200,169,110,0.12),
+      0 0 80px rgba(200,169,110,0.05);
+    border-color: rgba(200,169,110,0.55);
+  }
+  18% {
+    box-shadow: none;
+    border-color: rgba(200,169,110,0.18);
+  }
+  20% {
+    box-shadow:
+      0 0 4px rgba(200,169,110,0.35),
+      0 0 12px rgba(200,169,110,0.16);
+    border-color: rgba(200,169,110,0.40);
+  }
+  52% {
+    box-shadow: none;
+    border-color: rgba(200,169,110,0.15);
+  }
+  54% {
+    box-shadow:
+      0 0 6px rgba(200,169,110,0.50),
+      0 0 18px rgba(200,169,110,0.24);
+    border-color: rgba(200,169,110,0.50);
+  }
+  62% {
+    box-shadow:
+      0 0 3px rgba(200,169,110,0.30),
+      0 0 10px rgba(200,169,110,0.14);
+    border-color: rgba(200,169,110,0.35);
+  }
+}
+
+.sign-label {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(46px, 5.2vw, 74px);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  display: block;
+  white-space: nowrap;
+  position: relative;
+  text-shadow:
+    0 0 6px rgba(200,169,110,1),
+    0 0 16px rgba(200,169,110,0.85),
+    0 0 36px rgba(200,169,110,0.55),
+    0 0 72px rgba(200,169,110,0.28),
+    0 0 140px rgba(200,169,110,0.12);
+  animation: neonPulse 5s ease-in-out infinite;
+}
+
+.sign-label::before,
+.sign-label::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+.sign-label::before { color: rgba(255, 48, 48, 0.75); }
+.sign-label::after  { color: rgba(40, 220, 255, 0.75); }
+
+.sign-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, rgba(18,14,8,0.92), rgba(28,22,12,0.92));
+  border: 1px solid rgba(200, 169, 110, 0.55);
+  box-shadow:
+    inset 0 0 10px rgba(200,169,110,0.07),
+    0 0  6px rgba(200,169,110,0.55),
+    0 0 18px rgba(200,169,110,0.28),
+    0 0 40px rgba(200,169,110,0.12),
+    0 0 80px rgba(200,169,110,0.05);
+  animation: neonBorderGlow 5s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 36px;
+}
+
+.sign-label-back {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(34px, 3.8vw, 54px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  white-space: nowrap;
+  display: block;
+  text-shadow:
+    0 0 6px rgba(200,169,110,0.9),
+    0 0 16px rgba(200,169,110,0.7),
+    0 0 36px rgba(200,169,110,0.45),
+    0 0 72px rgba(200,169,110,0.22);
+  animation: neonPulse 5s ease-in-out infinite;
+}
+
+/* Neon flicker */
+@keyframes neonPulse {
+  0%,17%,19%,21%,51%,53%,63%,100% {
+    text-shadow:
+      0 0 6px rgba(200,169,110,1),
+      0 0 16px rgba(200,169,110,0.85),
+      0 0 36px rgba(200,169,110,0.55),
+      0 0 72px rgba(200,169,110,0.28);
+    opacity: 1;
+  }
+  18% { text-shadow: none; opacity: 0.87; }
+  20% { text-shadow: 0 0 4px rgba(200,169,110,0.5); opacity: 0.93; }
+  52% { text-shadow: none; opacity: 0.82; }
+  54% { text-shadow: 0 0 6px rgba(200,169,110,0.9); opacity: 1; }
+  62% { text-shadow: 0 0 3px rgba(200,169,110,0.6); opacity: 0.88; }
+}
+
+/* Sign rotation */
+@keyframes signSpin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+/* Glitch burst */
+.sign-label.is-glitching { animation: glitchBase 0.36s steps(1) forwards; }
+.sign-label.is-glitching::before { opacity: 1; animation: glitchLayerA 0.36s steps(1) forwards; }
+.sign-label.is-glitching::after  { opacity: 1; animation: glitchLayerB 0.36s steps(1) forwards; }
+
+@keyframes glitchBase {
+  0%,100% { transform: translate(0); }
+  12%  { transform: translate(-3px,  1px); }
+  25%  { transform: translate( 4px, -1px); }
+  37%  { transform: translate(-2px,  2px); }
+  50%  { transform: translate( 3px, -2px); }
+  62%  { transform: translate(-3px,  1px); }
+  75%  { transform: translate( 2px,  0px); }
+  87%  { transform: translate(-1px,  1px); }
+}
+@keyframes glitchLayerA {
+  0%       { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  12%      { clip-path: inset(16% 0 67% 0); transform: translate(-8px, 0); }
+  24%      { clip-path: inset(56% 0 24% 0); transform: translate( 7px, 0); }
+  36%      { clip-path: inset(32% 0 50% 0); transform: translate(-6px, 0); }
+  48%      { clip-path: inset(74% 0  6% 0); transform: translate( 8px, 0); }
+  60%      { clip-path: inset( 4% 0 84% 0); transform: translate(-5px, 0); }
+  72%      { clip-path: inset(44% 0 42% 0); transform: translate( 6px, 0); }
+  84%,100% { clip-path: inset(0 0 100% 0); opacity: 0; transform: translate(0); }
+}
+@keyframes glitchLayerB {
+  0%       { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  12%      { clip-path: inset(48% 0 32% 0); transform: translate( 7px, 0); }
+  24%      { clip-path: inset(20% 0 64% 0); transform: translate(-8px, 0); }
+  36%      { clip-path: inset(66% 0 16% 0); transform: translate( 6px, 0); }
+  48%      { clip-path: inset(26% 0 58% 0); transform: translate(-7px, 0); }
+  60%      { clip-path: inset(82% 0  4% 0); transform: translate( 8px, 0); }
+  72%      { clip-path: inset(10% 0 76% 0); transform: translate(-5px, 0); }
+  84%,100% { clip-path: inset(0 0 100% 0); opacity: 0; transform: translate(0); }
 }
 
 /* Content */
@@ -1183,6 +1395,7 @@ footer {
   .nav-mobile { display: flex; }
   .hero { padding: 0 24px 60px; }
   .hero-side { display: none; }
+  .hero-splice-sign { display: none; }
   .hero-deco { font-size: 100px; }
   .wrap { padding: 0 24px; }
   .stats-band { grid-template-columns: repeat(2, 1fr); }
@@ -1262,6 +1475,17 @@ footer {
   <div class="hero-noise"></div>
   <div class="hero-deco">SPLICE</div>
   <div class="hero-side">SPLICE · LUXEMBOURG · 2026</div>
+
+  <div class="hero-splice-sign" aria-hidden="true">
+    <div class="sign-spinner">
+      <div class="sign-face sign-front">
+        <span class="sign-label" data-text="SPLICE">SPLICE</span>
+      </div>
+      <div class="sign-face sign-back">
+        <span class="sign-label-back">AGENCY</span>
+      </div>
+    </div>
+  </div>
 
   <div class="hero-content">
     <div class="hero-eyebrow">Agence digitale &middot; Luxembourg &middot; Restauration</div>
@@ -1771,6 +1995,7 @@ setTimeout(() => {
 
 document.body.style.overflow = 'hidden';
 
+
 const isTouch = window.matchMedia('(hover: none)').matches;
 
 /* ---- NAV SCROLL ---- */
@@ -1976,6 +2201,34 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
 const rippleStyle = document.createElement('style');
 rippleStyle.textContent = `@keyframes ripple { to { transform:scale(80); opacity:0; } }`;
 document.head.appendChild(rippleStyle);
+
+// SPLICE spinning sign — reveal + glitch loop
+(function() {
+  const spinner = document.querySelector('.sign-spinner');
+  const label   = document.querySelector('.sign-label');
+  if (!spinner || !label) return;
+
+  // Apparition fluide après le splash
+  setTimeout(() => {
+    spinner.style.transition = 'opacity 1s ease';
+    spinner.style.opacity = '1';
+
+    // Premier glitch d'impact à l'apparition
+    setTimeout(() => triggerGlitch(), 500);
+
+    // Boucle aléatoire
+    function scheduleGlitch() {
+      const delay = 4000 + Math.random() * 5500;
+      setTimeout(() => { triggerGlitch(); scheduleGlitch(); }, delay);
+    }
+    scheduleGlitch();
+  }, 1900);
+
+  function triggerGlitch() {
+    label.classList.add('is-glitching');
+    setTimeout(() => label.classList.remove('is-glitching'), 400);
+  }
+})();
 </script>
 
 </body>
