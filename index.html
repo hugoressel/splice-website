@@ -1396,10 +1396,16 @@ footer {
 /* ====================================================
    FOOTER SOCIAL LINKS
 ==================================================== */
-.footer-social { display: flex; gap: 16px; margin-top: 10px; justify-content: flex-end; }
-.footer-social a { display: inline-flex; align-items: center; gap: 6px; font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--grey-light); text-decoration: none; transition: color 0.2s; }
+.footer-social { display: flex; gap: 16px; margin-top: 12px; justify-content: flex-end; }
+.footer-social a { display: inline-flex; align-items: center; gap: 8px; font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--grey-text); text-decoration: none; transition: color 0.2s; padding: 6px 0; border-bottom: 1px solid var(--gold-border); }
 .footer-social a svg { flex-shrink: 0; }
-.footer-social a:hover { color: var(--gold); }
+.footer-social a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* CTA Instagram link */
+.cta-social { margin: 24px auto 0; position: relative; z-index: 1; }
+.cta-insta-link { display: inline-flex; align-items: center; gap: 12px; padding: 13px 28px; border: 1px solid var(--gold-border); border-radius: 2px; font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-light); text-decoration: none; transition: color 0.25s, border-color 0.25s, background 0.25s; }
+.cta-insta-link:hover { color: var(--gold); border-color: rgba(200,169,110,0.5); background: var(--gold-dim); }
+.cta-insta-link svg { flex-shrink: 0; }
 
 /* ====================================================
    ANIMATIONS
@@ -2056,7 +2062,7 @@ footer {
       <div class="why-body">Directeurs de restaurant depuis plus d'une décennie. On ne joue pas à comprendre votre métier, on le connaît.</div>
     </div>
     <div class="why-card shimmer">
-      <div class="why-num">+0,5⭐</div>
+      <div class="why-num">+0,5★</div>
       <div class="why-title">= jusqu'à +9% de CA</div>
       <div class="why-body">C'est ce que démontre une étude Harvard Business School sur les avis Google. Notre pôle Terrain travaille exactement là-dessus.</div>
     </div>
@@ -2082,7 +2088,13 @@ footer {
     <a href="mailto:contact@splice-agency.com" class="btn-primary magnetic">Demander l'audit gratuit</a>
     <a href="tel:+352" class="btn-ghost">Nous appeler</a>
   </div>
-  <p class="cta-note reveal d4">Sans engagement · Réponse sous 24h · Luxembourg</p>
+  <div class="cta-social reveal d4">
+    <a href="https://www.instagram.com/splice_lux/" target="_blank" rel="noopener" class="cta-insta-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Suivez nos réalisations · @splice_lux
+    </a>
+  </div>
+  <p class="cta-note reveal d5">Sans engagement · Réponse sous 24h · Luxembourg</p>
 </div>
 
 <!-- FOOTER -->
