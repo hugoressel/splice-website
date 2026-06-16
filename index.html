@@ -1083,7 +1083,7 @@ section { padding: 120px 0; }
   transition: transform 0.5s var(--ease);
 }
 
-.pole-card:hover { border-color: var(--gold-border); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(200,169,110,0.08); }
+.pole-card:hover { border-color: rgba(200,169,110,0.45); transform: translateY(-8px); box-shadow: 0 28px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,169,110,0.18), 0 0 40px rgba(200,169,110,0.1); }
 .pole-card:hover::before { transform: scaleX(1); }
 
 .pole-num { font-family: 'Syne', sans-serif; font-size: 11px; letter-spacing: 0.2em; color: var(--gold); opacity: 0.5; margin-bottom: 24px; text-transform: uppercase; }
@@ -1141,7 +1141,7 @@ section { padding: 120px 0; }
   position: relative;
   transition: border-color 0.3s, transform 0.3s var(--ease), box-shadow 0.3s;
 }
-.pack-card:hover { border-color: var(--gold-border); transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+.pack-card:hover { border-color: rgba(200,169,110,0.4); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 35px rgba(200,169,110,0.12); }
 
 .pack-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 4px; }
 .pack-tagline { font-size: 13px; color: var(--grey-light); font-style: italic; margin-bottom: 20px; }
@@ -1378,6 +1378,30 @@ footer {
 .footer-copy { font-size: 11px; color: var(--grey-mid); }
 
 /* ====================================================
+   GRAIN TEXTURE (luxury card finish)
+==================================================== */
+.pack-card, .team-card, .pole-card {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='0.04' fill='white'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ====================================================
+   TITLE SPLIT — outline accent on second line
+==================================================== */
+.title-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gold);
+}
+
+/* ====================================================
+   FOOTER SOCIAL LINKS
+==================================================== */
+.footer-social { display: flex; gap: 16px; margin-top: 10px; justify-content: flex-end; }
+.footer-social a { display: inline-flex; align-items: center; gap: 6px; font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--grey-light); text-decoration: none; transition: color 0.2s; }
+.footer-social a svg { flex-shrink: 0; }
+.footer-social a:hover { color: var(--gold); }
+
+/* ====================================================
    ANIMATIONS
 ==================================================== */
 @keyframes fadeUp  { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
@@ -1417,6 +1441,7 @@ footer {
   footer { grid-template-columns: 1fr; text-align: center; padding: 32px 24px; gap: 16px; }
   .footer-right { text-align: center; }
   .footer-links { justify-content: center; }
+  .footer-social { justify-content: center; }
   .cta-wrap { padding: 80px 24px; }
   .cta-deco { display: none; }
 }
@@ -1952,7 +1977,7 @@ footer {
 <div class="wrap">
 <section id="packs">
   <div class="section-label reveal">05 — Nos packs</div>
-  <h2 class="section-title reveal d1">Vous voulez aller vite ?<br>Prenez un pack.</h2>
+  <h2 class="section-title reveal d1">Vous voulez aller vite ?<br><span class="title-outline">Prenez un pack.</span></h2>
   <p class="section-sub reveal d2">Nos packs combinent plusieurs pôles pour un résultat maximal. Site, carte, shooting, Reels : tout est pensé ensemble, livré en une seule mission.</p>
 
   <div class="packs-grid stagger reveal d2">
@@ -1960,7 +1985,7 @@ footer {
     <div class="pack-card shimmer bracket">
       <div class="pack-name">Élévation</div>
       <div class="pack-tagline">Pôle Présence Digitale + Coaching Terrain</div>
-      <div class="pack-price">4 000€</div>
+      <div class="pack-price price-counter" data-price="4000">4 000€</div>
       <div class="pack-price-note">HT · Prestation unique</div>
       <ul class="pack-list">
         <li>Site internet 8 à 12 pages</li>
@@ -1976,7 +2001,7 @@ footer {
       <div class="pack-badge">Recommandé</div>
       <div class="pack-name">Signature</div>
       <div class="pack-tagline">Pôles Présence Digitale + Vidéo & Réseaux + Coaching Terrain</div>
-      <div class="pack-price">6 000€</div>
+      <div class="pack-price price-counter" data-price="6000">6 000€</div>
       <div class="pack-price-note">HT · Prestation unique</div>
       <ul class="pack-list">
         <li>Site internet complet + réservation</li>
@@ -2000,7 +2025,7 @@ footer {
 <div class="wrap">
 <section id="equipe">
   <div class="section-label reveal">06 — L'équipe</div>
-  <h2 class="section-title reveal d1">Pas des marketeurs.<br>Des restaurateurs.</h2>
+  <h2 class="section-title reveal d1">Pas des marketeurs.<br><span class="title-outline">Des restaurateurs.</span></h2>
   <p class="section-sub reveal d2">Deux directeurs de restaurant et un expert vidéo, tous originaires de la Côte d'Azur, installés au Luxembourg. La seule agence à avoir réellement travaillé dans votre secteur.</p>
 
   <div class="team-grid stagger reveal d2">
@@ -2075,7 +2100,14 @@ footer {
       <a href="#concept">Concept</a>
       <a href="#services">Services</a>
       <a href="#tarifs">Tarifs</a>
+      <a href="#packs">Packs</a>
       <a href="#equipe">Équipe</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/splice_lux/" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+        @splice_lux
+      </a>
     </div>
     <div class="footer-copy">contact@splice-agency.com</div>
   </div>
@@ -2258,6 +2290,32 @@ const cObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-target]').forEach(el => cObserver.observe(el));
+
+/* ---- PACK PRICE COUNTER ---- */
+(function() {
+  function formatPrice(n) {
+    const s = Math.round(n).toString();
+    return s.length > 3 ? s.slice(0, -3) + ' ' + s.slice(-3) + '€' : s + '€';
+  }
+  function ease(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+  const priceObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.price, 10);
+      const duration = 1400;
+      const start = performance.now();
+      (function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        el.textContent = formatPrice(ease(progress) * target);
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = formatPrice(target);
+      })(start);
+      priceObs.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.price-counter').forEach(el => priceObs.observe(el));
+})();
 
 /* ---- MOBILE NAV ---- */
 const burger   = document.getElementById('navBurger');
