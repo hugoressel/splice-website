@@ -828,40 +828,6 @@ nav.scrolled {
 .marquee-item::after { content: '◆'; font-size: 6px; color: var(--gold); }
 
 /* ====================================================
-   CLIENTS / TRUST BAND
-==================================================== */
-.clients { padding: 76px 0 68px; text-align: center; position: relative; overflow: hidden; }
-.clients-label {
-  font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600;
-  letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold);
-  opacity: 0.85; margin-bottom: 44px;
-  display: inline-flex; align-items: center; gap: 14px;
-}
-.clients-label::before, .clients-label::after { content: ''; width: 32px; height: 1px; background: var(--gold); opacity: 0.4; }
-.clients-row { display: flex; align-items: stretch; justify-content: center; flex-wrap: wrap; gap: 22px; padding: 0 24px; }
-.client-logo {
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-  min-width: 210px; padding: 30px 38px;
-  border: 1px solid var(--gold-border); border-radius: 3px;
-  background: linear-gradient(135deg, rgba(200,169,110,0.045), transparent 70%);
-  transition: transform 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s;
-}
-.client-logo:hover {
-  transform: translateY(-6px); border-color: rgba(200,169,110,0.5);
-  box-shadow: 0 22px 54px rgba(0,0,0,0.42), 0 0 32px rgba(200,169,110,0.1);
-}
-.client-logo-name {
-  font-family: 'Syne', sans-serif; font-size: clamp(22px, 2.6vw, 28px); font-weight: 800;
-  letter-spacing: 0.02em; color: var(--white); line-height: 1; white-space: nowrap;
-}
-.client-logo-name.sm { font-size: clamp(18px, 2.1vw, 22px); }
-.client-logo-name .accent { color: var(--gold); }
-.client-logo-type {
-  font-family: 'Syne', sans-serif; font-size: 9px; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase; color: var(--grey-light);
-}
-
-/* ====================================================
    LAYOUT
 ==================================================== */
 .wrap { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
@@ -1712,25 +1678,6 @@ footer {
     <span class="marquee-item">Réservation en ligne</span>
     <span class="marquee-item">SEO local Luxembourg</span>
     <span class="marquee-item">Stratégie éditoriale</span>
-  </div>
-</div>
-
-<!-- CLIENTS -->
-<div class="clients reveal">
-  <div class="clients-label">Ils nous font confiance</div>
-  <div class="clients-row stagger reveal">
-    <div class="client-logo bracket">
-      <span class="client-logo-name">Legend'<span class="accent">K</span></span>
-      <span class="client-logo-type">Restaurant</span>
-    </div>
-    <div class="client-logo bracket">
-      <span class="client-logo-name">Legend'<span class="accent">S</span></span>
-      <span class="client-logo-type">Restaurant</span>
-    </div>
-    <div class="client-logo bracket">
-      <span class="client-logo-name sm">La Table <span class="accent">du Golf</span></span>
-      <span class="client-logo-type">Restaurant</span>
-    </div>
   </div>
 </div>
 
