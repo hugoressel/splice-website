@@ -175,6 +175,48 @@ body {
 }
 
 /* ====================================================
+   SOUND TOGGLE
+==================================================== */
+.sound-toggle {
+  position: fixed;
+  left: 24px; bottom: 24px;
+  z-index: 150;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-border);
+  background: rgba(10,10,10,0.7);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+.sound-toggle.ready { opacity: 1; transform: none; }
+.sound-toggle:hover { border-color: rgba(200,169,110,0.5); box-shadow: 0 0 22px rgba(200,169,110,0.25); background: rgba(20,16,10,0.85); }
+.sound-toggle svg { width: 20px; height: 20px; display: block; }
+.sound-toggle .icon-off { display: none; }
+.sound-toggle.muted .icon-on  { display: none; }
+.sound-toggle.muted .icon-off { display: block; }
+.sound-toggle.playing::after {
+  content: '';
+  position: absolute; inset: -1px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,169,110,0.4);
+  animation: soundPulse 2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes soundPulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+@media (max-width: 600px) {
+  .sound-toggle { left: 16px; bottom: 16px; width: 42px; height: 42px; }
+}
+
+/* ====================================================
    NAV
 ==================================================== */
 nav {
@@ -1596,6 +1638,15 @@ footer {
   <a href="#contact" class="nm-cta">Audit gratuit</a>
 </div>
 
+<!-- BACKGROUND MUSIC -->
+<audio id="bgm" loop preload="auto">
+  <source src="ambient-loop.mp3" type="audio/mpeg">
+</audio>
+<button class="sound-toggle muted" id="soundToggle" aria-label="Activer ou couper la musique d'ambiance" title="Musique d'ambiance">
+  <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+  <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+</button>
+
 <!-- HERO -->
 <div class="hero">
   <canvas id="heroCanvas"></canvas>
@@ -2187,6 +2238,64 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ---- BACKGROUND MUSIC ---- */
+(function () {
+  const audio = document.getElementById('bgm');
+  const btn   = document.getElementById('soundToggle');
+  if (!audio || !btn) return;
+
+  audio.volume = 0.28;
+  let started = false;
+
+  function pref(val) {
+    try {
+      if (val === undefined) return localStorage.getItem('splice-sound');
+      localStorage.setItem('splice-sound', val);
+    } catch (e) { /* private mode */ }
+  }
+
+  function play() {
+    audio.play().then(() => {
+      btn.classList.remove('muted');
+      btn.classList.add('playing');
+    }).catch(() => { /* blocked, will retry on click */ });
+  }
+
+  function pause() {
+    audio.pause();
+    btn.classList.add('muted');
+    btn.classList.remove('playing');
+  }
+
+  /* Auto-start at the first interaction, unless the visitor muted it before */
+  function firstInteract(e) {
+    if (e && e.target && e.target.closest && e.target.closest('#soundToggle')) return;
+    if (started) return;
+    started = true;
+    if (pref() !== 'off') play();
+    cleanup();
+  }
+  function cleanup() {
+    window.removeEventListener('pointerdown', firstInteract);
+    window.removeEventListener('scroll', firstInteract);
+    window.removeEventListener('keydown', firstInteract);
+  }
+  window.addEventListener('pointerdown', firstInteract, { passive: true });
+  window.addEventListener('scroll', firstInteract, { passive: true });
+  window.addEventListener('keydown', firstInteract);
+
+  /* Reveal the toggle once the intro splash is gone */
+  setTimeout(() => btn.classList.add('ready'), 2600);
+
+  /* Manual toggle */
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    started = true;
+    if (audio.paused) { pref('on'); play(); }
+    else { pref('off'); pause(); }
+  });
+})();
 
 /* ---- CANVAS PARTICLES ---- */
 const canvas = document.getElementById('heroCanvas');
