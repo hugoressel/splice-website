@@ -706,6 +706,21 @@ nav.scrolled {
   text-shadow: 0 0 80px rgba(200,169,110,0.25);
 }
 
+.hero-slogan {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(19px, 2.3vw, 28px);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fff;
+  max-width: 620px;
+  margin-bottom: 34px;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 0.5s forwards;
+}
+.hero-slogan .gold { color: var(--gold); font-style: italic; }
+
 .hero-body {
   font-size: 17px;
   font-weight: 300;
@@ -1626,6 +1641,8 @@ footer {
       <span class="line"><span class="line-inner">On remplit</span></span>
       <span class="line"><span class="line-inner gold">vos tables.</span></span>
     </h1>
+
+    <p class="hero-slogan">La seule agence qui entre <span class="gold">en salle</span>.</p>
 
     <p class="hero-body">
       Site internet, design de cartes restaurant, contenu vidéo, coaching opérationnel.
