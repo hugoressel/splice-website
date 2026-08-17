@@ -1135,6 +1135,7 @@ section { padding: 120px 0; }
 
 /* PACKS GRID */
 .packs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px; }
+.packs-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 
 .pack-card {
   border: 1px solid rgba(255,255,255,0.07);
@@ -1445,6 +1446,7 @@ footer {
   .process-steps { grid-template-columns: 1fr; }
   .poles-grid { grid-template-columns: 1fr; }
   .packs-grid { grid-template-columns: 1fr; }
+  .packs-grid.cols-3 { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   footer { grid-template-columns: 1fr; text-align: center; padding: 32px 24px; gap: 16px; }
@@ -1845,7 +1847,7 @@ footer {
   <!-- SITE -->
   <div class="panel active" id="panel-site">
     <p style="font-size:14px;color:var(--grey-text);margin-bottom:28px;line-height:1.7;">Création de votre site internet sur mesure et design de vos cartes restaurant (menu, vins, bar). Chaque prestation est <strong style="color:var(--white);">unique et livrée en une à deux semaines</strong>. Un accompagnement annuel prend ensuite le relais.</p>
-    <div class="packs-grid">
+    <div class="packs-grid cols-3">
       <div class="pack-card shimmer bracket">
         <div class="pack-name">Essentiel</div>
         <div class="pack-tagline">Lancez votre restaurant avec une présence professionnelle</div>
@@ -1869,6 +1871,22 @@ footer {
           <li class="gold">Système de réservation en ligne</li>
         </ul>
         <div class="pack-included">Easy Access 12 mois offert</div>
+      </div>
+      <div class="pack-card star rot-border shimmer bracket">
+        <div class="pack-badge">Nouveau</div>
+        <div class="pack-name">Prestige</div>
+        <div class="pack-tagline">Le site cinématique qui fait dire waouh</div>
+        <div class="pack-price">5 000€</div>
+        <div class="pack-price-note">HT · Prestation unique</div>
+        <ul class="pack-list">
+          <li>Site cinématique immersif, une vidéo qui se déroule au scroll</li>
+          <li>Univers visuel généré sur mesure pour votre établissement</li>
+          <li>Design de vos cartes restaurant (menu, vins, bar)</li>
+          <li>Système de réservation en ligne</li>
+          <li>Optimisé pour être trouvé sur Google</li>
+          <li class="gold">Copywriting professionnel sur mesure</li>
+        </ul>
+        <div class="pack-included">Premium 12 mois offert</div>
       </div>
     </div>
     <div class="maintenance-title">Accompagnement annuel — après livraison du site</div>
