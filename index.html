@@ -458,7 +458,7 @@ nav.scrolled {
 /* SPLICE spinning sign */
 .hero-splice-sign {
   position: absolute;
-  left: 52%;
+  left: 60%;
   top: 50%;
   transform: translateY(-50%);
   perspective: 900px;
@@ -703,11 +703,16 @@ nav.scrolled {
 .hero-title .line:nth-child(3) .line-inner { animation-delay: 0.51s; }
 .hero-title .line:nth-child(4) .line-inner { animation-delay: 0.64s; }
 
-/* Credo hero — 4 lignes, on réduit un peu la taille pour tenir proprement */
+/* Credo hero — 4 lignes : plus petit, plus aéré, moins écrasé */
 .hero-title-credo {
-  font-size: clamp(38px, 6.6vw, 84px);
-  max-width: 820px;
+  font-size: clamp(30px, 4.8vw, 62px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 700px;
+  margin-bottom: 32px;
 }
+.hero-title-credo .gold { text-shadow: 0 0 60px rgba(200,169,110,0.20); }
 
 .hero-title .gold {
   color: var(--gold);
