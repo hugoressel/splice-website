@@ -700,6 +700,14 @@ nav.scrolled {
 
 .hero-title .line:nth-child(1) .line-inner { animation-delay: 0.25s; }
 .hero-title .line:nth-child(2) .line-inner { animation-delay: 0.38s; }
+.hero-title .line:nth-child(3) .line-inner { animation-delay: 0.51s; }
+.hero-title .line:nth-child(4) .line-inner { animation-delay: 0.64s; }
+
+/* Credo hero — 4 lignes, on réduit un peu la taille pour tenir proprement */
+.hero-title-credo {
+  font-size: clamp(38px, 6.6vw, 84px);
+  max-width: 820px;
+}
 
 .hero-title .gold {
   color: var(--gold);
@@ -1624,9 +1632,11 @@ footer {
   <div class="hero-content">
     <div class="hero-eyebrow">Agence digitale &middot; Luxembourg &middot; Restauration</div>
 
-    <h1 class="hero-title">
-      <span class="line"><span class="line-inner">La seule agence</span></span>
-      <span class="line"><span class="line-inner gold">qui entre en salle.</span></span>
+    <h1 class="hero-title hero-title-credo">
+      <span class="line"><span class="line-inner">Arrêtez de travailler</span></span>
+      <span class="line"><span class="line-inner">dans votre business.</span></span>
+      <span class="line"><span class="line-inner gold">Laissez-le travailler</span></span>
+      <span class="line"><span class="line-inner gold">pour vous.</span></span>
     </h1>
 
     <p class="hero-body">
@@ -1682,59 +1692,6 @@ footer {
     <span class="marquee-item">Stratégie éditoriale</span>
   </div>
 </div>
-
-<!-- CREDO -->
-<style>
-.credo {
-  position: relative;
-  padding: 120px 24px;
-  text-align: center;
-  border-top: 1px solid var(--gold-border);
-  border-bottom: 1px solid var(--gold-border);
-  background:
-    radial-gradient(120% 100% at 50% 0%, var(--gold-dim), transparent 60%),
-    var(--black-2);
-  overflow: hidden;
-}
-.credo-eyebrow {
-  font-family: 'Syne', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 28px;
-}
-.credo-line {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  font-size: clamp(28px, 5vw, 58px);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
-  max-width: 15ch;
-  margin: 0 auto;
-}
-.credo-line .gold {
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.credo-rule {
-  width: 48px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.6;
-  margin: 40px auto 0;
-}
-</style>
-<section class="credo">
-  <div class="credo-eyebrow reveal">Notre credo</div>
-  <p class="credo-line reveal d1">
-    Arrêtez de travailler <span class="gold">dans</span> votre business.<br>
-    Laissez-le travailler <span class="gold">pour</span> vous.
-  </p>
-  <div class="credo-rule reveal d2"></div>
-</section>
 
 <!-- CONCEPT -->
 <div class="wrap">
