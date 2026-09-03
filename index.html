@@ -142,6 +142,18 @@ section{padding:130px 0;position:relative}
 .accroche h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.06;max-width:20ch;margin:0 auto 22px}
 .accroche p{font-size:clamp(16px,1.7vw,20px);color:var(--text-secondary);max-width:60ch;margin:0 auto;line-height:1.6}
 
+.story h2{margin-bottom:34px}
+.story-body{max-width:62ch}
+.story-body p{color:var(--text-secondary);font-size:clamp(16px,1.5vw,18px);line-height:1.75;margin-bottom:20px}
+.story-body p strong{color:var(--accent);font-weight:700}
+.story-sign{color:var(--text-primary)!important;font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(18px,2vw,23px);line-height:1.4;margin-top:10px}
+.story-team{display:flex;flex-wrap:wrap;gap:14px;margin-top:52px}
+.story-member{flex:1;min-width:220px;border:1px solid var(--accent-muted);border-radius:4px;padding:24px;background:var(--panel);transition:border-color .3s var(--ease)}
+.story-member:hover{border-color:rgba(200,169,110,.32)}
+.story-member .m-avatar{width:40px;height:40px;border-radius:50%;border:1px solid var(--accent-muted);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;color:var(--accent);margin-bottom:18px}
+.story-member .m-name{font-family:'Syne',sans-serif;font-weight:700;font-size:19px;margin-bottom:5px}
+.story-member .m-role{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary);line-height:1.5}
+
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
 .diff-card{background:var(--panel);border:1px solid var(--accent-muted);border-radius:4px;padding:30px}
 .diff-card .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--accent);margin-bottom:16px}
@@ -308,10 +320,33 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 
   <hr class="divider">
 
-  <!-- 01 LEVIERS -->
+  <!-- 01 HISTOIRE -->
+  <section id="histoire" class="story">
+    <div class="wrap">
+      <div class="s-label reveal">01 · Notre histoire</div>
+      <h2 class="s-title reveal d1">On vient de la salle,<br>pas du <span class="gold">bureau</span>.</h2>
+      <div class="story-body">
+        <p class="reveal d1">On a fait ce métier pour de vrai. Et on connaît ce qu'on ne montre jamais aux clients.</p>
+        <p class="reveal d1">Les arrêts maladie qui tombent un vendredi soir de coup de feu. Les équipes qui vont et viennent, sans jamais vraiment se stabiliser. La bataille de tous les jours pour tenir une vraie régularité, en cuisine, au bar, en salle.</p>
+        <p class="reveal d2">Et ce téléphone. 24h/24. Une question à laquelle personne ne sait répondre, un stock qui manque, un planning à refaire, un truc qui aurait dû être noté quelque part et qui ne l'est nulle part. On finit par croire que sans nous, rien ne tient. Parce qu'il n'y a ni info claire, ni structure derrière.</p>
+        <p class="reveal d2">On est déjà passés de l'autre côté. On a structuré et automatisé des restaurants : des plannings qui tiennent, des fiches techniques carrées, une organisation qui tourne, et des équipes responsabilisées qui n'ont plus besoin qu'on soit sur leur dos. On sait le faire, parce qu'on l'a déjà fait.</p>
+        <p class="reveal d3">C'est de là qu'est venue l'idée. Hugo et Dylan au pilotage, et Kylian à l'image, passé par <strong>Sparkle</strong>, l'un des noms qui comptent dans la communication, qui a déjà signé du contenu pour de grandes marques.</p>
+        <p class="reveal d3 story-sign">SPLICE, c'est ça. Des gens de la restauration qui aident d'autres restaurateurs à reprendre le contrôle de leur établissement, et à remplir leurs tables.</p>
+      </div>
+      <div class="story-team reveal d3">
+        <div class="story-member"><div class="m-avatar">H</div><div class="m-name">Hugo</div><div class="m-role">Co-fondateur · Digital &amp; Ops</div></div>
+        <div class="story-member"><div class="m-avatar">D</div><div class="m-name">Dylan</div><div class="m-role">Co-fondateur · Commercial &amp; Coaching</div></div>
+        <div class="story-member"><div class="m-avatar">K</div><div class="m-name">Kylian</div><div class="m-role">Réalisateur · Contenu &amp; vidéo · ex-Sparkle</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 02 LEVIERS -->
   <section id="leviers">
     <div class="wrap">
-      <div class="s-label reveal">01 · Nos pôles</div>
+      <div class="s-label reveal">02 · Nos pôles</div>
       <h2 class="s-title reveal d1">Trois pôles. Une seule mission :<br>faire grandir votre établissement.</h2>
       <p class="s-sub reveal d2">On active seulement ce dont votre établissement a besoin. Prix d'entrée transparents, devis précis après diagnostic.</p>
       <div class="lev-grid">
@@ -366,7 +401,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   <!-- 02 MÉTHODE -->
   <section id="methode">
     <div class="wrap">
-      <div class="s-label reveal">02 · La méthode</div>
+      <div class="s-label reveal">03 · La méthode</div>
       <h2 class="s-title reveal d1">Du diagnostic à la croissance.</h2>
       <div class="steps">
         <div class="step reveal d1"><div class="sn">01</div><h3>Diagnostic croissance gratuit</h3><p>On analyse votre établissement dans son ensemble : visibilité, réputation, expérience, carte, opportunités. On identifie ce qui vous freine.</p></div>
@@ -381,7 +416,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   <!-- 03 CONTACT -->
   <section class="cta" id="contact">
     <div class="wrap">
-      <div class="s-label reveal" style="text-align:center">03 · Contact</div>
+      <div class="s-label reveal" style="text-align:center">04 · Contact</div>
       <h2 class="s-title reveal d1">Prête à se remplir ?</h2>
       <p class="s-sub reveal d2">On commence par un diagnostic croissance gratuit. Une lecture complète de votre établissement, pour vous dire concrètement où agir.</p>
       <form class="form reveal d2" id="form">
