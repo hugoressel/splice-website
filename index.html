@@ -137,7 +137,10 @@ section{padding:130px 0;position:relative}
 .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:14px}
 .quote{background:var(--panel);border:1px solid var(--accent-muted);border-radius:4px;padding:26px 28px;font-size:17px;line-height:1.55;color:var(--text-primary)}
 .quote::before{content:"";display:block;width:26px;height:2px;background:var(--accent);margin-bottom:16px}
-.constat-chute{margin-top:34px;font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(22px,3vw,34px)}
+.accroche{text-align:center}
+.accroche .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:26px}
+.accroche h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.06;max-width:20ch;margin:0 auto 22px}
+.accroche p{font-size:clamp(16px,1.7vw,20px);color:var(--text-secondary);max-width:60ch;margin:0 auto;line-height:1.6}
 
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
 .diff-card{background:var(--panel);border:1px solid var(--accent-muted);border-radius:4px;padding:30px}
@@ -294,10 +297,21 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <!-- ====== MAIN ====== -->
 <main id="main" tabindex="-1">
 
-  <!-- 03 LEVIERS -->
+  <!-- ACCROCHE · PARTENAIRE DE DÉVELOPPEMENT -->
+  <section id="accroche" class="accroche">
+    <div class="wrap">
+      <div class="eyebrow reveal">Notre rôle</div>
+      <h2 class="reveal d1">Pas un prestataire de plus.<br>Votre <span class="gold">partenaire de développement</span>.</h2>
+      <p class="reveal d2">On ne se contente pas de livrer des prestations. D'anciens restaurateurs qui s'installent à vos côtés, dans la durée, pour développer votre établissement, remplir vos tables et faire durer votre réussite.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 01 LEVIERS -->
   <section id="leviers">
     <div class="wrap">
-      <div class="s-label reveal">03 · Nos pôles</div>
+      <div class="s-label reveal">01 · Nos pôles</div>
       <h2 class="s-title reveal d1">Trois pôles. Une seule mission :<br>faire grandir votre établissement.</h2>
       <p class="s-sub reveal d2">On active seulement ce dont votre établissement a besoin. Tout sur devis, après diagnostic.</p>
       <div class="lev-grid">
@@ -349,10 +363,10 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 
   <hr class="divider">
 
-  <!-- 04 MÉTHODE -->
+  <!-- 02 MÉTHODE -->
   <section id="methode">
     <div class="wrap">
-      <div class="s-label reveal">04 · La méthode</div>
+      <div class="s-label reveal">02 · La méthode</div>
       <h2 class="s-title reveal d1">Du diagnostic à la croissance.</h2>
       <div class="steps">
         <div class="step reveal d1"><div class="sn">01</div><h3>Diagnostic croissance gratuit</h3><p>On analyse votre établissement dans son ensemble : visibilité, réputation, expérience, carte, opportunités. On identifie ce qui vous freine.</p></div>
@@ -367,7 +381,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   <!-- 05 MESURE + INTERACTIF -->
   <section id="mesure">
     <div class="wrap">
-      <div class="s-label reveal">05 · Ce qu'on mesure</div>
+      <div class="s-label reveal">03 · Ce qu'on mesure</div>
       <h2 class="s-title reveal d1">Des couverts, pas des likes.</h2>
       <p class="s-sub reveal d2">On suit ce qui change vraiment votre établissement. Pas le reach. Pas les abonnés.</p>
       <div class="metrics reveal d2">
@@ -378,10 +392,10 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 
   <hr class="divider">
 
-  <!-- 06 FAQ -->
+  <!-- 04 FAQ -->
   <section id="faq">
     <div class="wrap">
-      <div class="s-label reveal">06 · Vos questions</div>
+      <div class="s-label reveal">04 · Vos questions</div>
       <h2 class="s-title reveal d1">Ce que vous vous demandez, sans détour.</h2>
       <div class="faq reveal d1">
         <div class="faq-item"><button class="faq-q">Les agences comprennent rien à la restauration.</button><div class="faq-a"><p>D'accord. C'est pour ça qu'on n'est pas une agence marketing. On est deux directeurs de restaurant qui ont vécu votre quotidien.</p></div></div>
@@ -395,10 +409,10 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 
   <hr class="divider">
 
-  <!-- 07 CONTACT -->
+  <!-- 05 CONTACT -->
   <section class="cta" id="contact">
     <div class="wrap">
-      <div class="s-label reveal" style="text-align:center">07 · Contact</div>
+      <div class="s-label reveal" style="text-align:center">05 · Contact</div>
       <h2 class="s-title reveal d1">Prête à se remplir ?</h2>
       <p class="s-sub reveal d2">On commence par un diagnostic croissance gratuit. Une lecture complète de votre établissement, pour vous dire concrètement où agir.</p>
       <form class="form reveal d2" id="form">
