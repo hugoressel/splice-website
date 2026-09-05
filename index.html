@@ -598,19 +598,32 @@ updateFill();
    ENDPOINT = URL du worker serverless (à renseigner une fois le backend déployé).
    Tant qu'il est vide, on bascule sur un email pré-rempli : le succès n'est
    affiché QUE lorsque le serveur confirme la réception (réponse 200). */
-const ENDPOINT=""; // ex: "https://lead.splice-agency.workers.dev"
+const ENDPOINT=""; // URL du Worker Cloudflare (ex: https://splice-lead.xxx.workers.dev). Vide = fallback mailto.
 const form=document.getElementById('form');
 const submitBtn=form.querySelector('button[type=submit]');
+let sending=false, started=false;
+
+/* Hooks analytics — no-op tant que GA4/Meta ne sont pas branchés */
+function track(event,params){
+  try{
+    if(window.dataLayer)window.dataLayer.push({event,...params});
+    if(window.gtag)gtag('event',event,params||{});
+  }catch(_){}
+}
+form.addEventListener('input',()=>{if(!started){started=true;track('form_start',{form:'diagnostic'});}},{once:false});
+
 form.addEventListener('submit',async e=>{
   e.preventDefault();
-  if(form.querySelector('[name=_gotcha]').value){return;} /* honeypot anti-spam */
+  if(sending)return; /* anti double-clic */
+  if(form.querySelector('[name=_gotcha]').value){return;} /* honeypot */
   if(!form.checkValidity()){form.reportValidity();return;}
   const data=Object.fromEntries(new FormData(form).entries());
   delete data._gotcha;
+  data.source=location.href; /* page d'origine ; le serveur ajoute l'horodatage */
 
   if(!ENDPOINT){
-    /* Fallback honnête tant que le backend n'est pas branché : on ouvre un email
-       pré-rempli. Aucun message "Reçu" n'est affiché sans transmission réelle. */
+    /* Fallback honnête tant que le backend n'est pas branché : email pré-rempli.
+       Aucun "Reçu" n'est affiché sans transmission réelle. */
     const body=encodeURIComponent(
       "Nom : "+(data.nom||"")+"\n"+
       "Établissement : "+(data.etablissement||"")+"\n"+
@@ -622,17 +635,19 @@ form.addEventListener('submit',async e=>{
     return;
   }
 
-  submitBtn.disabled=true;const label=submitBtn.textContent;submitBtn.textContent="Envoi…";
+  sending=true;submitBtn.disabled=true;const label=submitBtn.textContent;submitBtn.textContent="Envoi…";
   form.classList.remove('failed');
   try{
     const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
     if(!r.ok)throw new Error('bad status '+r.status);
-    form.classList.add('done'); /* succès affiché uniquement après confirmation serveur */
+    form.classList.add('done'); /* succès affiché UNIQUEMENT après HTTP 200 réel */
+    track('form_submit_success',{form:'diagnostic'});
     if(window.gtag)gtag('event','generate_lead',{form:'diagnostic'});
     if(window.fbq)fbq('track','Lead');
   }catch(err){
     form.classList.add('failed');
-    submitBtn.disabled=false;submitBtn.textContent=label;
+    track('form_submit_error',{form:'diagnostic'});
+    sending=false;submitBtn.disabled=false;submitBtn.textContent=label;
   }
 });
 
