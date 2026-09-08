@@ -1,0 +1,8 @@
+# SPLICE - redirections d'avis clients
+# 302 volontaire : la destination reste modifiable sans invalider les plaques deja imprimees.
+# Ne jamais passer en 301, les navigateurs la mettent en cache definitivement.
+
+/avis/letzsmile   https://g.page/r/CU9Hrht_tRxXEBM/review   302
+
+# Gabarit pour les prochains clients :
+# /avis/nom-du-client   https://g.page/r/XXXXXXXX/review   302
