@@ -10,7 +10,9 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B0A08'/%3E%3Ctext x='16' y='22' font-family='Syne,sans-serif' font-size='16' font-weight='800' text-anchor='middle' fill='%23C8A96E'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=JetBrains+Mono:wght@500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=JetBrains+Mono:wght@500&display=swap"></noscript>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -176,6 +178,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   .terrain{padding:34px 24px}
   .mstep{grid-template-columns:56px 1fr;gap:18px}
 }
+@media (max-width:560px){.phero h1{font-size:clamp(32px,9vw,40px)}.s-title{font-size:clamp(24px,6.8vw,30px)}.pcta h2{font-size:clamp(28px,7.5vw,32px)}.terrain h2{font-size:24px}.phero-kicker,.mono,.s-label{letter-spacing:.12em}h1,h2,h3{overflow-wrap:anywhere}}
 @media (pointer:coarse){.btn,.nav-cta{min-height:44px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.reveal{opacity:1;transform:none}}
 </style>
@@ -186,7 +189,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 
 <nav>
   <a href="index.html" class="nav-logo">SPLI<span>CE</span></a>
-  <a href="index.html" class="nav-back">← Retour à l'accueil</a>
+  <a href="index.html" class="nav-back">← Retour à l’accueil</a>
   <a href="index.html#contact" class="nav-cta">Demander mon diagnostic</a>
 </nav>
 
@@ -208,10 +211,10 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   <div class="wrap">
     <div class="phero-kicker mono">Pôle 03 · Expérience &amp; performance · Coaching</div>
     <h1>Vos équipes et vos opérations,<br>à leur plein potentiel.</h1>
-    <p class="lead">On entre dans votre établissement, on regarde comment il tourne vraiment, et on remet de la performance là où elle se perd : le service, l'organisation, le management, le ticket moyen. Concrètement, sur le terrain.</p>
+    <p class="lead">On entre dans votre établissement, on regarde comment il tourne vraiment, et on remet de la performance là où elle se perd : le service, l’organisation, le management, le ticket moyen. Concrètement, sur le terrain.</p>
     <div class="phero-actions">
       <a href="index.html#contact" class="btn btn-primary">Demander mon diagnostic</a>
-      <a href="#domaines" class="btn btn-ghost">Voir nos domaines d'intervention</a>
+      <a href="#domaines" class="btn btn-ghost">Voir nos domaines d’intervention</a>
     </div>
   </div>
 </header>
@@ -220,14 +223,14 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <section id="problemes">
   <div class="wrap">
     <div class="s-label reveal">01 · Vous vous reconnaissez peut-être ici</div>
-    <h2 class="s-title reveal d1">Ce qu'on peut vous aider à débloquer.</h2>
+    <h2 class="s-title reveal d1">Ce qu’on peut vous aider à débloquer.</h2>
     <div class="probs">
       <div class="prob reveal d1">Votre restaurant tourne, mais la rentabilité ne suit pas.</div>
       <div class="prob reveal d2">Vous faites du chiffre, sans savoir précisément où part votre marge.</div>
       <div class="prob reveal d1">Votre équipe vend correctement, mais le ticket moyen pourrait monter.</div>
-      <div class="prob reveal d2">L'établissement dépend trop de vous. Vous ne pouvez pas lâcher.</div>
-      <div class="prob reveal d1">Les procédures sont dans votre tête, pas dans l'entreprise.</div>
-      <div class="prob reveal d2">Le service fonctionne, mais manque de régularité d'un soir à l'autre.</div>
+      <div class="prob reveal d2">L’établissement dépend trop de vous. Vous ne pouvez pas lâcher.</div>
+      <div class="prob reveal d1">Les procédures sont dans votre tête, pas dans l’entreprise.</div>
+      <div class="prob reveal d2">Le service fonctionne, mais manque de régularité d’un soir à l’autre.</div>
       <div class="prob reveal d1">Vous avez de bons avis, sans stratégie pour les exploiter.</div>
       <div class="prob reveal d2">Vos serveurs prennent la commande, mais ne conseillent pas.</div>
     </div>
@@ -240,12 +243,12 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <section id="diagnostic">
   <div class="wrap">
     <div class="s-label reveal">02 · Notre diagnostic</div>
-    <h2 class="s-title reveal d1">On ne vend pas une prestation.<br>On comprend d'abord ce qui bloque.</h2>
-    <p class="s-sub reveal d2">Avant toute recommandation, on regarde votre établissement dans son ensemble : les chiffres, l'organisation, et l'expérience réelle vécue en salle. C'est ce qui nous permet de prioriser ce qui aura vraiment de l'impact.</p>
+    <h2 class="s-title reveal d1">On ne vend pas une prestation.<br>On comprend d’abord ce qui bloque.</h2>
+    <p class="s-sub reveal d2">Avant toute recommandation, on regarde votre établissement dans son ensemble : les chiffres, l’organisation, et l’expérience réelle vécue en salle. C’est ce qui nous permet de prioriser ce qui aura vraiment de l’impact.</p>
     <div class="diag">
       <div class="diag-card reveal d1"><div class="n">Les chiffres</div><h3>Ce que disent vos données</h3><p>CA, ticket moyen, mix produit, food &amp; beverage cost, marges, masse salariale, plannings en regard du CA, taux de remplissage.</p></div>
-      <div class="diag-card reveal d2"><div class="n">Le terrain</div><h3>Ce qui se passe en salle</h3><p>Un ou plusieurs services observés : fluidité, coup de feu, points de friction, vente additionnelle, qualité et régularité, expérience client réelle.</p></div>
-      <div class="diag-card reveal d3"><div class="n">L'organisation</div><h3>Comment ça tient</h3><p>Procédures, standards, management, dépendance au dirigeant, recrutement, e-réputation, outils. Ce qui est solide, ce qui repose sur vous seul.</p></div>
+      <div class="diag-card reveal d2"><div class="n">Le terrain</div><h3>Ce qui se passe en salle</h3><p>Un ou plusieurs services observés : fluidité, coup de feu, points de friction, vente additionnelle, qualité et régularité, expérience client réelle.</p></div>
+      <div class="diag-card reveal d3"><div class="n">L’organisation</div><h3>Comment ça tient</h3><p>Procédures, standards, management, dépendance au dirigeant, recrutement, e-réputation, outils. Ce qui est solide, ce qui repose sur vous seul.</p></div>
     </div>
   </div>
 </section>
@@ -255,16 +258,16 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <!-- DOMAINES / FAMILIES -->
 <section id="domaines">
   <div class="wrap">
-    <div class="s-label reveal">03 · Nos domaines d'intervention</div>
+    <div class="s-label reveal">03 · Nos domaines d’intervention</div>
     <h2 class="s-title reveal d1">Là où on peut agir.</h2>
-    <p class="s-sub reveal d2">On regroupe nos interventions en grandes familles. On n'active que celles qui comptent pour votre situation. Cliquez pour ouvrir le détail.</p>
+    <p class="s-sub reveal d2">On regroupe nos interventions en grandes familles. On n’active que celles qui comptent pour votre situation. Cliquez pour ouvrir le détail.</p>
 
     <div class="fams reveal d2">
       <details class="fam" open>
-        <summary><span class="fam-num">01</span><span class="fam-head"><h3>Management &amp; équipes</h3><span class="fam-promise">Une équipe autonome, qui tient les standards même quand vous n'êtes pas là.</span></span><span class="fam-plus"></span></summary>
+        <summary><span class="fam-num">01</span><span class="fam-head"><h3>Management &amp; équipes</h3><span class="fam-promise">Une équipe autonome, qui tient les standards même quand vous n’êtes pas là.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
-          <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Management des chefs d'équipe</span><span>Briefing &amp; débriefing</span><span>Standards &amp; check-lists</span><span>Onboarding</span><span>Performance individuelle</span><span>Fidélisation des équipes</span><span>Montée en autonomie</span></div></div>
-          <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Un établissement qui ne dépend plus uniquement de vous</li><li>Une régularité de service d'un soir à l'autre</li><li>Des standards écrits, appliqués et tenus</li><li>Moins de turnover, plus d'engagement</li></ul></div>
+          <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Management des chefs d’équipe</span><span>Briefing &amp; débriefing</span><span>Standards &amp; check-lists</span><span>Onboarding</span><span>Performance individuelle</span><span>Fidélisation des équipes</span><span>Montée en autonomie</span></div></div>
+          <div class="fam-goal"><h4>Ce qu’on cherche à obtenir</h4><ul><li>Un établissement qui ne dépend plus uniquement de vous</li><li>Une régularité de service d’un soir à l’autre</li><li>Des standards écrits, appliqués et tenus</li><li>Moins de turnover, plus d’engagement</li></ul></div>
         </div></div>
       </details>
 
@@ -272,25 +275,25 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
         <summary><span class="fam-num">02</span><span class="fam-head"><h3>Service &amp; expérience client</h3><span class="fam-promise">Une expérience qui fait revenir et recommander, pas juste dîner une fois.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
           <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Parcours client</span><span>Points de friction</span><span>Fluidité du service</span><span>Qualité &amp; régularité</span><span>Gestion des pics</span><span>Rotation des tables</span><span>Accueil &amp; départ</span></div></div>
-          <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Une expérience régulière, à chaque service</li><li>Plus de retours et de recommandations</li><li>Un service qui absorbe le coup de feu sans casser</li><li>Une meilleure rotation sans dégrader le ressenti</li></ul></div>
+          <div class="fam-goal"><h4>Ce qu’on cherche à obtenir</h4><ul><li>Une expérience régulière, à chaque service</li><li>Plus de retours et de recommandations</li><li>Un service qui absorbe le coup de feu sans casser</li><li>Une meilleure rotation sans dégrader le ressenti</li></ul></div>
         </div></div>
       </details>
 
       <details class="fam">
-        <summary><span class="fam-num">03</span><span class="fam-head"><h3>Organisation &amp; opérations</h3><span class="fam-promise">Sortir les procédures de votre tête et les mettre dans l'entreprise.</span></span><span class="fam-plus"></span></summary>
+        <summary><span class="fam-num">03</span><span class="fam-head"><h3>Organisation &amp; opérations</h3><span class="fam-promise">Sortir les procédures de votre tête et les mettre dans l’entreprise.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
           <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Procédures &amp; standards</span><span>Check-lists</span><span>Plannings vs CA</span><span>Productivité</span><span>Masse salariale</span><span>Organisation du service</span><span>Gestion des pics</span></div></div>
-          <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Une organisation qui tient sans vous derrière chaque détail</li><li>Une masse salariale calée sur l'activité réelle</li><li>Des process reproductibles, transmissibles</li><li>Moins d'imprévus, plus de sérénité</li></ul></div>
+          <div class="fam-goal"><h4>Ce qu’on cherche à obtenir</h4><ul><li>Une organisation qui tient sans vous derrière chaque détail</li><li>Une masse salariale calée sur l’activité réelle</li><li>Des process reproductibles, transmissibles</li><li>Moins d’imprévus, plus de sérénité</li></ul></div>
           </div>
           <p class="fam-promise" style="margin-top:22px">La rentabilité de la carte, les marges par plat, les fiches techniques et les fiches de coûts de production relèvent du <a href="pole-produit.html" class="gold">pôle Produit &amp; rentabilité</a>.</p>
         </div>
       </details>
 
       <details class="fam">
-        <summary><span class="fam-num">04</span><span class="fam-head"><h3>Vente &amp; ticket moyen</h3><span class="fam-promise">Vendre mieux, sans jamais dégrader l'expérience client.</span></span><span class="fam-plus"></span></summary>
+        <summary><span class="fam-num">04</span><span class="fam-head"><h3>Vente &amp; ticket moyen</h3><span class="fam-promise">Vendre mieux, sans jamais dégrader l’expérience client.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
           <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Vente additionnelle</span><span>Upselling</span><span>Cross-selling</span><span>Conseil client en salle</span><span>Mise en avant produits</span><span>Formation des serveurs</span></div></div>
-          <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Aider vos équipes à mieux conseiller, pas à réciter un script</li><li>Une hausse du ticket moyen, service après service</li><li>Des recommandations qui valorisent l'expérience</li><li>Une vente qui vient du plaisir, pas de la pression</li></ul></div>
+          <div class="fam-goal"><h4>Ce qu’on cherche à obtenir</h4><ul><li>Aider vos équipes à mieux conseiller, pas à réciter un script</li><li>Une hausse du ticket moyen, service après service</li><li>Des recommandations qui valorisent l’expérience</li><li>Une vente qui vient du plaisir, pas de la pression</li></ul></div>
         </div></div>
       </details>
 
@@ -298,7 +301,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
         <summary><span class="fam-num">05</span><span class="fam-head"><h3>Recrutement &amp; extras</h3><span class="fam-promise">Les bonnes personnes, bien intégrées, au bon moment.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
           <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Besoin &amp; profils</span><span>Recrutement</span><span>Extras &amp; renforts</span><span>Onboarding</span><span>Intégration &amp; standards</span></div></div>
-          <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Des recrutements qui collent vraiment à votre service</li><li>Des extras fiables pour absorber les pics</li><li>Une intégration rapide, sans casser le niveau</li></ul></div>
+          <div class="fam-goal"><h4>Ce qu’on cherche à obtenir</h4><ul><li>Des recrutements qui collent vraiment à votre service</li><li>Des extras fiables pour absorber les pics</li><li>Une intégration rapide, sans casser le niveau</li></ul></div>
         </div></div>
       </details>
 
@@ -306,7 +309,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
         <summary><span class="fam-num">06</span><span class="fam-head"><h3>Événementiel &amp; temps forts</h3><span class="fam-promise">Faire de vos soirées et événements un vrai levier, pas une charge.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
           <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Soirées &amp; temps forts</span><span>Privatisations</span><span>Organisation opérationnelle</span><span>Coordination des prestataires</span></div></div>
-          <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Des événements qui remplissent les creux et fidélisent</li><li>Une organisation carrée le jour J</li><li>Un impact business, pas seulement de l'animation</li></ul></div>
+          <div class="fam-goal"><h4>Ce qu’on cherche à obtenir</h4><ul><li>Des événements qui remplissent les creux et fidélisent</li><li>Une organisation carrée le jour J</li><li>Un impact business, pas seulement de l’animation</li></ul></div>
         </div></div>
       </details>
     </div>
@@ -323,7 +326,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
     <div class="cases">
       <div class="case reveal d1">
         <div class="tag mono">Cas 01</div>
-        <h3>Souvent complet, mais la rentabilité n'y est pas.</h3>
+        <h3>Souvent complet, mais la rentabilité n’y est pas.</h3>
         <div class="an">On analyse</div>
         <div class="an-list"><span>CA</span><span>Ticket moyen</span><span>Mix produit</span><span>Planning</span><span>Productivité</span><span>Masse salariale</span></div>
         <p style="margin-top:16px">Puis on identifie les 2 ou 3 leviers prioritaires, ceux qui rapportent réellement à effort raisonnable.</p>
@@ -333,14 +336,14 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
         <h3>Beaucoup de passage, mais peu de clients qui reviennent.</h3>
         <div class="an">On analyse</div>
         <div class="an-list"><span>Expérience</span><span>Base client</span><span>Avis</span><span>CRM</span><span>Offres</span><span>Service</span></div>
-        <p style="margin-top:16px">On travaille la régularité de l'expérience et la fidélisation. Ici, le pôle Digital vient souvent compléter le terrain.</p>
+        <p style="margin-top:16px">On travaille la régularité de l’expérience et la fidélisation. Ici, le pôle Digital vient souvent compléter le terrain.</p>
       </div>
       <div class="case reveal d3">
         <div class="tag mono">Cas 03</div>
         <h3>Bon établissement, mais tout repose sur le patron.</h3>
         <div class="an">On analyse</div>
         <div class="an-list"><span>Procédures</span><span>Standards</span><span>Management</span><span>Autonomie équipe</span><span>Organisation</span></div>
-        <p style="margin-top:16px">On sort les procédures de votre tête, on structure le management, on rend l'équipe autonome. Vous reprenez de la hauteur.</p>
+        <p style="margin-top:16px">On sort les procédures de votre tête, on structure le management, on rend l’équipe autonome. Vous reprenez de la hauteur.</p>
       </div>
     </div>
   </div>
@@ -354,13 +357,13 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
     <div class="s-label reveal">05 · La méthode SPLICE</div>
     <h2 class="s-title reveal d1">Diagnostiquer, prioriser, agir, mesurer.</h2>
     <div class="method reveal d2">
-      <div class="mstep"><div class="mn">01</div><div><h3>Comprendre</h3><p>On échange avec vous, dirigeant. On comprend votre établissement, vos objectifs, vos contraintes et ce qui vous freine aujourd'hui.</p></div></div>
-      <div class="mstep"><div class="mn">02</div><div><h3>Observer</h3><p>On analyse les données, les outils et l'expérience réelle en salle. On vient voir un service, pas juste un tableur.</p></div></div>
-      <div class="mstep"><div class="mn">03</div><div><h3>Diagnostiquer</h3><p>On identifie les vrais points de friction et les opportunités, chiffres à l'appui.</p></div></div>
-      <div class="mstep"><div class="mn">04</div><div><h3>Prioriser</h3><p>On distingue l'urgent, l'important et le réellement rentable. On ne vous noie pas sous vingt chantiers.</p></div></div>
+      <div class="mstep"><div class="mn">01</div><div><h3>Comprendre</h3><p>On échange avec vous, dirigeant. On comprend votre établissement, vos objectifs, vos contraintes et ce qui vous freine aujourd’hui.</p></div></div>
+      <div class="mstep"><div class="mn">02</div><div><h3>Observer</h3><p>On analyse les données, les outils et l’expérience réelle en salle. On vient voir un service, pas juste un tableur.</p></div></div>
+      <div class="mstep"><div class="mn">03</div><div><h3>Diagnostiquer</h3><p>On identifie les vrais points de friction et les opportunités, chiffres à l’appui.</p></div></div>
+      <div class="mstep"><div class="mn">04</div><div><h3>Prioriser</h3><p>On distingue l’urgent, l’important et le réellement rentable. On ne vous noie pas sous vingt chantiers.</p></div></div>
       <div class="mstep"><div class="mn">05</div><div><h3>Agir</h3><p>On mobilise les bonnes expertises et on met en place, sur le terrain, avec vos équipes.</p></div></div>
       <div class="mstep"><div class="mn">06</div><div><h3>Mesurer</h3><p>On suit les indicateurs qui comptent pour votre établissement, et on regarde ce qui bouge vraiment.</p></div></div>
-      <div class="mstep"><div class="mn">07</div><div><h3>Ajuster</h3><p>On améliore le dispositif au fil du temps. La performance, ça s'entretient.</p></div></div>
+      <div class="mstep"><div class="mn">07</div><div><h3>Ajuster</h3><p>On améliore le dispositif au fil du temps. La performance, ça s’entretient.</p></div></div>
     </div>
   </div>
 </section>
@@ -372,12 +375,12 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   <div class="wrap">
     <div class="s-label reveal">06 · Quand un problème dépasse le terrain</div>
     <h2 class="s-title reveal d1">Vos problèmes ne rentrent pas toujours dans une seule case.</h2>
-    <p class="s-sub reveal d2">"Mon restaurant n'est pas assez rempli" peut relever du terrain, mais aussi de la visibilité et du contenu. On coordonne les bons leviers, ensemble.</p>
+    <p class="s-sub reveal d2">« Mon restaurant n’est pas assez rempli » peut relever du terrain, mais aussi de la visibilité et du contenu. On coordonne les bons leviers, ensemble.</p>
     <div class="bridges">
       <a class="bridge reveal d1" href="pole-digital.html">
         <div class="bn mono">Pôle 01</div>
         <h3>Visibilité &amp; présence</h3>
-        <p>Être trouvé, remplir les creux, exploiter les avis, faciliter la réservation. Souvent le complément d'un travail de fond sur l'expérience.</p>
+        <p>Être trouvé, remplir les creux, exploiter les avis, faciliter la réservation. Souvent le complément d’un travail de fond sur l’expérience.</p>
         <span class="lk">Découvrir le pôle Visibilité &amp; présence <span>→</span></span>
       </a>
       <a class="bridge reveal d2" href="pole-contenu.html">
@@ -389,7 +392,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
       <a class="bridge reveal d3" href="pole-produit.html">
         <div class="bn mono">Pôle 04</div>
         <h3>Produit &amp; rentabilité</h3>
-        <p>La salle porte le produit, la cuisine le fabrique. Régularité de l'assiette, passe et marge par plat : c'est le pôle Produit.</p>
+        <p>La salle porte le produit, la cuisine le fabrique. Régularité de l’assiette, passe et marge par plat : c’est le pôle Produit.</p>
         <span class="lk">Découvrir le pôle Produit &amp; rentabilité <span>→</span></span>
       </a>
     </div>
@@ -402,8 +405,8 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <section id="terrain">
   <div class="wrap">
     <div class="terrain reveal">
-      <h2>On a été de l'autre côté de la table.</h2>
-      <p>SPLICE, ce ne sont pas des marketeurs qui ont choisi la restauration comme niche. Ses fondateurs ont dirigé des restaurants. On connaît le coup de feu, les absences de dernière minute, les plannings à refaire, la marge qui fond, l'avis Google à 23h, la table qui ne tourne pas et la pression qui pèse sur le dirigeant. On ne découvre pas votre métier pendant le rendez-vous.</p>
+      <h2>On a été de l’autre côté de la table.</h2>
+      <p>SPLICE, ce ne sont pas des marketeurs qui ont choisi la restauration comme niche. Ses fondateurs ont dirigé des restaurants. On connaît le coup de feu, les absences de dernière minute, les plannings à refaire, la marge qui fond, l’avis Google à 23h, la table qui ne tourne pas et la pression qui pèse sur le dirigeant. On ne découvre pas votre métier pendant le rendez-vous.</p>
       <div class="terrain-chips">
         <span>Le coup de feu</span><span>Les plannings</span><span>Les food costs</span><span>Le recrutement</span><span>Les avis</span><span>Les marges</span><span>Le management</span><span>Les fournisseurs</span><span>La rentabilité</span>
       </div>
@@ -416,12 +419,12 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <!-- RESULTS -->
 <section id="resultats">
   <div class="wrap">
-    <div class="s-label reveal">07 · Les résultats qu'on vise</div>
+    <div class="s-label reveal">07 · Les résultats qu’on vise</div>
     <h2 class="s-title reveal d1">On mesure ce qui change votre établissement.</h2>
     <div class="results">
-      <div class="res reveal d1"><h3>Meilleure marge</h3><p>À volume égal, récupérer la marge qui se perd dans les plannings, la masse salariale et l'organisation.</p></div>
+      <div class="res reveal d1"><h3>Meilleure marge</h3><p>À volume égal, récupérer la marge qui se perd dans les plannings, la masse salariale et l’organisation.</p></div>
       <div class="res reveal d2"><h3>Ticket moyen</h3><p>Une vente additionnelle naturelle qui fait monter le panier sans forcer.</p></div>
-      <div class="res reveal d3"><h3>Régularité</h3><p>Un service au même niveau, chaque soir, sans dépendre d'une seule personne.</p></div>
+      <div class="res reveal d3"><h3>Régularité</h3><p>Un service au même niveau, chaque soir, sans dépendre d’une seule personne.</p></div>
       <div class="res reveal d1"><h3>Fidélisation</h3><p>Des clients qui reviennent et recommandent, une base client qui travaille pour vous.</p></div>
     </div>
   </div>
@@ -453,7 +456,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <footer>
   <div>
     <div class="footer-logo">SPLI<span>CE</span></div>
-    <div class="footer-tag">Partenaire de croissance des restaurateurs · "On remplit vos tables."</div>
+    <div class="footer-tag">Partenaire de croissance des restaurateurs · « On remplit vos tables. »</div>
   </div>
   <div class="footer-right">
     <a href="index.html">Accueil</a> · <a href="mailto:contact@splice-agency.com">contact@splice-agency.com</a><br>
