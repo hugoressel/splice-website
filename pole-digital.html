@@ -109,7 +109,7 @@ section{padding:110px 0;position:relative;z-index:2}
 .mstep .mn{font-family:'Syne',sans-serif;font-weight:800;font-size:34px;color:var(--accent);opacity:.4;line-height:1}
 .mstep h3{font-size:20px;margin-bottom:8px}
 .mstep p{color:var(--text-secondary);font-size:15px;line-height:1.55;max-width:60ch}
-.bridges{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+.bridges{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 .bridge{background:var(--panel);border:1px solid var(--accent-muted);border-radius:6px;padding:30px;transition:border-color .35s var(--ease),transform .35s var(--ease)}
 .bridge:hover{border-color:var(--accent);transform:translateY(-4px)}
 .bridge .bn{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--text-secondary);margin-bottom:12px}
@@ -140,9 +140,11 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 @media (max-width:900px){
   nav{padding:0 20px}.subnav-inner{padding:0 20px}.wrap,.wrap-narrow{padding:0 20px}
   section{padding:80px 0}.nav-cta{display:none}
-  .probs,.diag,.cases,.bridges,.results,.fam-body .cols{grid-template-columns:1fr}
+  .probs,.diag,.cases,.results,.fam-body .cols{grid-template-columns:1fr}
+  .bridges{grid-template-columns:repeat(2,1fr)}
   .fam-body{padding-left:4px}.terrain{padding:34px 24px}.mstep{grid-template-columns:56px 1fr;gap:18px}
 }
+@media (max-width:560px){.bridges{grid-template-columns:1fr}}
 @media (pointer:coarse){.btn,.nav-cta{min-height:44px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.reveal{opacity:1;transform:none}}
 </style>
@@ -225,13 +227,24 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
       <details class="fam" open>
         <summary><span class="fam-num">01</span><span class="fam-head"><h3>Site &amp; présence digitale</h3><span class="fam-promise">Un site qui donne envie et qui transforme, pas une vitrine morte.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
-          <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Site internet</span><span>Version mobile</span><span>Cartes &amp; menus en ligne</span><span>Photos &amp; univers</span><span>Copywriting</span><span>Back-office &amp; mises à jour</span></div></div>
-          <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Un site qui donne envie dès la première seconde</li><li>Un parcours simple qui mène à la réservation</li><li>Une carte toujours à jour et facile à trouver</li><li>Une présence que vous maîtrisez, sans dépendre de personne</li></ul></div>
+          <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Site internet</span><span>Version mobile</span><span>Photos &amp; univers</span><span>Copywriting</span><span>Back-office &amp; mises à jour</span></div></div>
+          <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Un site qui donne envie dès la première seconde</li><li>Un parcours simple qui mène à la réservation</li><li>Une présence que vous maîtrisez, sans dépendre de personne</li></ul></div>
         </div></div>
       </details>
 
       <details class="fam">
-        <summary><span class="fam-num">02</span><span class="fam-head"><h3>Visibilité &amp; SEO local</h3><span class="fam-promise">Apparaître quand les gens cherchent où manger près de chez vous.</span></span><span class="fam-plus"></span></summary>
+        <summary><span class="fam-num">02</span><span class="fam-head"><h3>Carte &amp; menus en ligne</h3><span class="fam-promise">Publier et mettre en forme votre carte en ligne, toujours à jour et cohérente avec l'assiette.</span></span><span class="fam-plus"></span></summary>
+        <div class="fam-body">
+          <div class="cols">
+          <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Publication lisible par les moteurs de recherche</span><span>Mise en page &amp; lisibilité mobile</span><span>Mise en valeur des plats signature</span><span>Cohérence carte publiée / servie</span><span>Mise à jour à chaque changement</span><span>Versions multilingues</span></div></div>
+          <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Une carte en ligne trouvée sur Google, pas cachée dans un PDF</li><li>Une carte agréable à lire sur mobile</li><li>Vos plats signature mis en avant</li><li>Une carte publiée toujours fidèle à celle servie</li></ul></div>
+          </div>
+          <p class="fam-promise" style="margin-top:22px">La rentabilité de la carte, les marges par plat et les fiches de production relèvent du <a href="pole-produit.html" class="gold">pôle Produit &amp; rentabilité</a>.</p>
+        </div>
+      </details>
+
+      <details class="fam">
+        <summary><span class="fam-num">03</span><span class="fam-head"><h3>Visibilité &amp; SEO local</h3><span class="fam-promise">Apparaître quand les gens cherchent où manger près de chez vous.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
           <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>SEO local</span><span>Fiche Google Business</span><span>Recherche &amp; Maps</span><span>Cohérence des infos</span><span>Photos &amp; horaires</span><span>Mots-clés locaux</span></div></div>
           <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Sortir dans les premiers résultats de votre zone</li><li>Une fiche Google qui donne envie et rassure</li><li>Plus de visites qui viennent d'une recherche locale</li><li>Une visibilité qui ne dépend pas de la pub</li></ul></div>
@@ -239,7 +252,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
       </details>
 
       <details class="fam">
-        <summary><span class="fam-num">03</span><span class="fam-head"><h3>Réservation &amp; remplissage</h3><span class="fam-promise">Remplir vos tables, y compris les soirs creux, sans perdre de clients en route.</span></span><span class="fam-plus"></span></summary>
+        <summary><span class="fam-num">04</span><span class="fam-head"><h3>Réservation &amp; remplissage</h3><span class="fam-promise">Remplir vos tables, y compris les soirs creux, sans perdre de clients en route.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
           <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Réservation en ligne</span><span>Centralisation des canaux</span><span>No-show</span><span>Remplissage des creux</span><span>Gestion des flux</span><span>Taux de remplissage</span></div></div>
           <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Une réservation simple, sur tous vos canaux</li><li>Moins de no-show et de tables perdues</li><li>Des leviers concrets pour remplir les soirs calmes</li><li>Une meilleure lecture de votre remplissage réel</li></ul></div>
@@ -247,7 +260,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
       </details>
 
       <details class="fam">
-        <summary><span class="fam-num">04</span><span class="fam-head"><h3>E-réputation &amp; avis</h3><span class="fam-promise">Faire de votre réputation locale un vrai levier de réassurance.</span></span><span class="fam-plus"></span></summary>
+        <summary><span class="fam-num">05</span><span class="fam-head"><h3>E-réputation &amp; avis</h3><span class="fam-promise">Faire de votre réputation locale un vrai levier de réassurance.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
           <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Avis Google</span><span>Réponses aux avis</span><span>Gestion des avis négatifs</span><span>Collecte d'avis</span><span>Note &amp; réassurance</span></div></div>
           <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Une note qui rassure avant même qu'on voie la carte</li><li>Des avis négatifs traités, pas subis</li><li>Une collecte d'avis régulière et naturelle</li><li>Une réputation qui devient un argument d'acquisition</li></ul></div>
@@ -255,7 +268,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
       </details>
 
       <details class="fam">
-        <summary><span class="fam-num">05</span><span class="fam-head"><h3>Base client &amp; fidélisation digitale</h3><span class="fam-promise">Garder le lien et faire revenir, au lieu de repartir de zéro à chaque service.</span></span><span class="fam-plus"></span></summary>
+        <summary><span class="fam-num">06</span><span class="fam-head"><h3>Base client &amp; fidélisation digitale</h3><span class="fam-promise">Garder le lien et faire revenir, au lieu de repartir de zéro à chaque service.</span></span><span class="fam-plus"></span></summary>
         <div class="fam-body"><div class="cols">
           <div><h4>Ce sur quoi on intervient</h4><div class="fam-list"><span>Base client</span><span>CRM</span><span>Emailing</span><span>Offres &amp; relances</span><span>Récurrence</span></div></div>
           <div class="fam-goal"><h4>Ce qu'on cherche à obtenir</h4><ul><li>Une base client qui vous appartient et qui travaille</li><li>Des relances qui ramènent du monde les bons soirs</li><li>Plus de récurrence, moins de dépendance au passage</li></ul></div>
@@ -334,6 +347,12 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
         <h3>Expérience &amp; performance</h3>
         <p>Une expérience en salle à la hauteur de la promesse en ligne. Ce que le client vit doit tenir ce que le digital a promis.</p>
         <span class="lk">Découvrir le pôle Expérience &amp; performance <span>→</span></span>
+      </a>
+      <a class="bridge reveal d3" href="pole-produit.html">
+        <div class="bn mono">Pôle 04</div>
+        <h3>Produit &amp; rentabilité</h3>
+        <p>Rendre la carte visible en ligne, c'est bien. Qu'elle soit régulière en cuisine et qu'elle fasse la marge, c'est le pôle Produit.</p>
+        <span class="lk">Découvrir le pôle Produit &amp; rentabilité <span>→</span></span>
       </a>
     </div>
   </div>
