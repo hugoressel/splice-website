@@ -330,7 +330,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <!-- ====== HERO (autoplay loop) ====== -->
 <section class="hero-loop" id="hero">
   <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" poster="assets/hero-poster.webp" aria-hidden="true" tabindex="-1">
-    <source data-src="assets/hero-loop.mp4" type="video/mp4">
+    <source data-src="assets/hero-loop.mp4" data-src-mobile="assets/hero-loop-mobile.mp4" type="video/mp4">
   </video>
   <div class="hero-scrim"></div>
   <div class="hero-vignette"></div>
@@ -591,14 +591,15 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <script>
 const clamp=(v,lo,hi)=>Math.min(hi,Math.max(lo,v));
 
-/* hero video: chargée seulement sur écran large et sans mouvement réduit (mobile = poster seul) */
+/* hero video: version 1280p sur grand écran, version allégée sur mobile, rien en mouvement réduit */
 const heroVideo=document.getElementById('heroVideo');
 const heroSource=heroVideo.querySelector('source');
 const reduceMQ=matchMedia('(prefers-reduced-motion: reduce)');
 const wideMQ=matchMedia('(min-width: 561px)');
 function applyVideoMotion(){
-  if(reduceMQ.matches||!wideMQ.matches){heroVideo.pause();return;}
-  if(!heroSource.src){heroSource.src=heroSource.dataset.src;heroVideo.load();}
+  if(reduceMQ.matches){heroVideo.pause();return;}
+  const want=wideMQ.matches?heroSource.dataset.src:heroSource.dataset.srcMobile;
+  if(heroSource.getAttribute('src')!==want){heroSource.src=want;heroVideo.load();}
   const p=heroVideo.play();if(p&&p.catch)p.catch(()=>{});
 }
 wideMQ.addEventListener('change',applyVideoMotion);
