@@ -1,0 +1,7 @@
+# Configuration de publication GitHub Pages.
+# Ces chemins sont des fichiers de travail internes : ils ne doivent jamais
+# être servis sur splice-agency.com.
+exclude:
+  - _masked
+  - config
+  - scripts
