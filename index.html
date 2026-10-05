@@ -166,7 +166,9 @@ section{padding:130px 0;position:relative}
 .partners-track{display:flex;align-items:center;justify-content:center;gap:clamp(44px,7vw,96px);width:max-content;margin:0 auto}
 /* hauteur ET largeur plafonnées : un logo large ne doit pas écraser un logo carré */
 .partners-track img{max-height:clamp(74px,8.6vw,108px);max-width:clamp(150px,19vw,224px);width:auto;height:auto;object-fit:contain;display:block;opacity:.9;transition:opacity .35s var(--ease),transform .35s var(--ease)}
-.partners-track img:hover{opacity:1;transform:translateY(-3px)}
+.partners-track>a{display:block;line-height:0;border-radius:3px}
+.partners-track>a:hover img,.partners-track>img:hover{opacity:1;transform:translateY(-3px)}
+.partners-track>a:focus-visible{outline:2px solid var(--accent);outline-offset:7px}
 .partners-viewport.scrolling .partners-track{justify-content:flex-start;animation:partnersScroll 34s linear infinite}
 .partners-viewport.scrolling:hover .partners-track{animation-play-state:paused}
 @keyframes partnersScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -533,9 +535,14 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
       <div class="eyebrow reveal">Partenaires</div>
       <div class="partners-viewport reveal d1" id="partnersViewport">
         <div class="partners-track" id="partnersTrack">
+          <!-- Legend’S : pas de lien, le domaine restaurant-legends.lu ne sert aucun site (404 Framer au 05/10/2026). -->
           <img src="assets/partners/legends-schifflange.webp" alt="Legend’S Restaurant &amp; Chalet, Schifflange" width="420" height="356" loading="lazy" decoding="async">
-          <img src="assets/partners/legendk-mediterraneo.webp" alt="Legend’K Restaurant Mediterraneo" width="440" height="411" loading="lazy" decoding="async">
-          <img src="assets/partners/latabledugolf.webp" alt="La Table du Golf by Ercan" width="560" height="260" loading="lazy" decoding="async">
+          <a href="https://legendk.lu" target="_blank" rel="noopener">
+            <img src="assets/partners/legendk-mediterraneo.webp" alt="Legend’K Restaurant Mediterraneo" width="440" height="411" loading="lazy" decoding="async">
+          </a>
+          <a href="https://latabledugolf.lu" target="_blank" rel="noopener">
+            <img src="assets/partners/latabledugolf.webp" alt="La Table du Golf by Ercan" width="560" height="260" loading="lazy" decoding="async">
+          </a>
         </div>
       </div>
     </div>
@@ -707,11 +714,15 @@ document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
     track.querySelectorAll('[data-clone]').forEach(n=>n.remove());
     if(reduce.matches) return;
     if(track.scrollWidth > vp.clientWidth + 1){
-      track.querySelectorAll('img').forEach(n=>{
+      /* on duplique les éléments de premier niveau (liens compris) pour boucler sans saut.
+         Les clones sortent du parcours clavier et des lecteurs d'écran. */
+      [...track.children].forEach(n=>{
         const c=n.cloneNode(true);
         c.setAttribute('data-clone','');
         c.setAttribute('aria-hidden','true');
-        c.alt='';
+        if(c.tagName==='A') c.tabIndex=-1;
+        const img=c.tagName==='IMG'?c:c.querySelector('img');
+        if(img) img.alt='';
         track.appendChild(c);
       });
       vp.classList.add('scrolling');
