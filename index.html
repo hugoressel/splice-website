@@ -159,6 +159,17 @@ section{padding:130px 0;position:relative}
 .band h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,54px);line-height:1.06;max-width:22ch;margin:0 auto 22px}
 .band p{font-size:clamp(16px,1.7vw,20px);color:var(--text-secondary);max-width:60ch;margin:0 auto;line-height:1.6}
 
+/* ====== PARTENAIRES ====== */
+.partners{text-align:center}
+.partners .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:30px}
+.partners-viewport{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.partners-track{display:flex;align-items:center;justify-content:center;gap:clamp(44px,7vw,96px);width:max-content;margin:0 auto}
+.partners-track img{height:clamp(86px,10vw,128px);width:auto;display:block;opacity:.9;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.partners-track img:hover{opacity:1;transform:translateY(-3px)}
+.partners-viewport.scrolling .partners-track{justify-content:flex-start;animation:partnersScroll 34s linear infinite}
+.partners-viewport.scrolling:hover .partners-track{animation-play-state:paused}
+@keyframes partnersScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
 /* ====== STORY (Pourquoi SPLICE) ====== */
 .story h2{margin-bottom:34px}
 .story-body{max-width:62ch}
@@ -515,6 +526,20 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 
   <hr class="divider">
 
+  <!-- PARTENAIRES (bande défilante : le défilement s'active seul dès que les logos dépassent la largeur) -->
+  <section id="partenaires" class="partners">
+    <div class="wrap">
+      <div class="eyebrow reveal">Partenaires</div>
+      <div class="partners-viewport reveal d1" id="partnersViewport">
+        <div class="partners-track" id="partnersTrack">
+          <img src="assets/partners/legends-schifflange.webp" alt="Legend’S Restaurant &amp; Chalet, Schifflange" width="420" height="356" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
   <!-- CONTACT -->
   <section class="cta" id="contact">
     <div class="wrap">
@@ -666,6 +691,33 @@ form.addEventListener('submit',async e=>{
 /* reveals */
 const rio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}})},{threshold:0.15});
 document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
+
+/* bande partenaires : on ne fait défiler que si les logos dépassent la largeur,
+   sinon ils restent centrés. Ajouter des logos suffit à activer le défilement. */
+(function(){
+  const vp=document.getElementById('partnersViewport');
+  if(!vp) return;
+  const track=vp.querySelector('.partners-track');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  function apply(){
+    vp.classList.remove('scrolling');
+    track.querySelectorAll('[data-clone]').forEach(n=>n.remove());
+    if(reduce.matches) return;
+    if(track.scrollWidth > vp.clientWidth + 1){
+      track.querySelectorAll('img').forEach(n=>{
+        const c=n.cloneNode(true);
+        c.setAttribute('data-clone','');
+        c.setAttribute('aria-hidden','true');
+        c.alt='';
+        track.appendChild(c);
+      });
+      vp.classList.add('scrolling');
+    }
+  }
+  addEventListener('resize',apply);
+  reduce.addEventListener('change',apply);
+  if(document.readyState==='complete') apply(); else addEventListener('load',apply);
+})();
 
 /* pause heavy animations on hidden tab */
 addEventListener('visibilitychange',()=>document.body.classList.toggle('paused',document.hidden));
