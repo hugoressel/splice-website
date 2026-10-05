@@ -175,6 +175,9 @@ section{padding:130px 0;position:relative}
 .partners-cap.r{background:linear-gradient(90deg,transparent,rgba(200,169,110,.5))}
 .partners-cap.r::before{left:auto;right:0;transform:translate(50%,-50%) rotate(45deg)}
 .partners-cap.r::after{left:auto;right:12px;transform:translate(50%,-50%) rotate(45deg)}
+/* précision hors restauration : la niche d'abord, l'ouverture ensuite */
+.partners-note{margin:clamp(30px,4vw,46px) auto 0;max-width:66ch;font-size:13.5px;line-height:1.65;color:var(--text-secondary)}
+.partners-note b{color:var(--text-primary);font-weight:400}
 .partners-viewport{overflow:hidden;position:relative}
 /* fondu des bords réservé au défilement : en rangée fixe il effacerait les logos extrêmes */
 .partners-viewport.scrolling{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
@@ -569,6 +572,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
         </div>
         <span class="partners-cap r" aria-hidden="true"></span>
       </div>
+      <p class="partners-note reveal d2">Notre spécialité, c’est la restauration. Mais <b>un site soigné</b> et <b>une fiche Google Business bien tenue</b> valent pour n’importe quelle activité de proximité : cabinets, commerces et indépendants nous confient aussi les leurs.</p>
     </div>
   </section>
 
@@ -596,6 +600,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
             <option>Contenu &amp; image</option>
             <option>Expérience, équipe &amp; performance</option>
             <option>Produit, carte &amp; cuisine</option>
+            <option>Site ou fiche Google (hors restauration)</option>
             <option>Un peu de tout / je ne sais pas encore</option>
           </select>
           <textarea name="message" placeholder="En quelques mots, où vous en êtes (facultatif)"></textarea>
