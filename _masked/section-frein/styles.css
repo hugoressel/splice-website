@@ -1,0 +1,4 @@
+/* ====== FREIN (problèmes premium) ====== */
+.frein-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:38px 0 30px}
+.frein{background:var(--panel);border:1px solid var(--accent-muted);border-left:2px solid var(--accent);border-radius:5px;padding:22px 24px;font-size:17px;line-height:1.5;color:var(--text-primary)}
+.frein-chute{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(20px,2.8vw,30px)}

@@ -148,11 +148,6 @@ section{padding:130px 0;position:relative}
 .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
 
-/* ====== FREIN (problèmes premium) ====== */
-.frein-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:38px 0 30px}
-.frein{background:var(--panel);border:1px solid var(--accent-muted);border-left:2px solid var(--accent);border-radius:5px;padding:22px 24px;font-size:17px;line-height:1.5;color:var(--text-primary)}
-.frein-chute{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(20px,2.8vw,30px)}
-
 /* ====== AUTONOMIE / bandes centrées ====== */
 .band{text-align:center}
 .band .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:26px}
@@ -305,7 +300,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   .burger{display:flex}
   .wrap,.hero-content{padding:0 22px}
   section{padding:90px 0}
-  .frein-list,.dim-grid,.steps,.founders,.proof-grid{grid-template-columns:1fr}
+  .dim-grid,.steps,.founders,.proof-grid{grid-template-columns:1fr}
   .form-grid .two{grid-template-columns:1fr}
   .fillrail{display:none}
   .hero-scrim{background:linear-gradient(0deg,rgba(11,10,8,.86),rgba(11,10,8,.25) 55%,rgba(11,10,8,.5))}
@@ -377,23 +372,6 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 
 <!-- ====== MAIN ====== -->
 <main id="main" tabindex="-1">
-
-  <!-- LE VRAI FREIN -->
-  <section id="frein">
-    <div class="wrap">
-      <div class="s-label reveal">Le vrai frein</div>
-      <h2 class="s-title reveal d1">Un restaurant peut être excellent<br>et pourtant sous-performer.</h2>
-      <div class="frein-list">
-        <div class="frein reveal d1">Une présence digitale qui ne convertit pas.</div>
-        <div class="frein reveal d2">Une équipe qui manque de méthode.</div>
-        <div class="frein reveal d1">Une réputation en dessous de la qualité réelle de l’établissement.</div>
-        <div class="frein reveal d2">Un dirigeant indispensable à chaque décision.</div>
-      </div>
-      <p class="frein-chute reveal d2">Notre travail commence là où se trouve <span class="gold">réellement</span> le frein.</p>
-    </div>
-  </section>
-
-  <hr class="divider">
 
   <!-- AUTONOMIE -->
   <section id="autonomie" class="band">
