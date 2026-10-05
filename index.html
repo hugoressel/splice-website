@@ -161,15 +161,28 @@ section{padding:130px 0;position:relative}
 
 /* ====== PARTENAIRES ====== */
 .partners{text-align:center}
-.partners .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:30px}
+/* en-tête : le mot encadré de deux filets dorés qui s'estompent vers l'extérieur */
+.partners-head{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2vw,22px);margin-bottom:clamp(40px,5vw,66px)}
+.partners-head .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:0;white-space:nowrap}
+.partners-head i{display:block;height:1px;width:clamp(26px,7vw,96px);background:linear-gradient(90deg,transparent,var(--accent-muted) 65%,var(--accent))}
+.partners-head i:last-child{background:linear-gradient(90deg,var(--accent),var(--accent-muted) 35%,transparent)}
+/* extrémités de la banderole : un losange doré, puis un filet qui rentre et s'efface */
+.partners-row{display:flex;align-items:center;gap:clamp(10px,2.2vw,26px)}
+.partners-row .partners-viewport{flex:1;min-width:0}
+.partners-cap{flex:none;position:relative;height:1px;width:clamp(20px,4vw,48px);background:linear-gradient(90deg,rgba(200,169,110,.5),transparent)}
+.partners-cap::before{content:"";position:absolute;top:50%;left:0;width:7px;height:7px;transform:translate(-50%,-50%) rotate(45deg);background:var(--accent);opacity:.8}
+.partners-cap::after{content:"";position:absolute;top:50%;left:12px;width:3px;height:3px;transform:translate(-50%,-50%) rotate(45deg);background:var(--accent);opacity:.5}
+.partners-cap.r{background:linear-gradient(90deg,transparent,rgba(200,169,110,.5))}
+.partners-cap.r::before{left:auto;right:0;transform:translate(50%,-50%) rotate(45deg)}
+.partners-cap.r::after{left:auto;right:12px;transform:translate(50%,-50%) rotate(45deg)}
 .partners-viewport{overflow:hidden;position:relative}
 /* fondu des bords réservé au défilement : en rangée fixe il effacerait les logos extrêmes */
 .partners-viewport.scrolling{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.partners-track{display:flex;align-items:center;justify-content:center;gap:clamp(44px,7vw,96px);width:max-content;margin:0 auto}
+.partners-track{display:flex;align-items:center;justify-content:center;gap:clamp(34px,4.4vw,64px);width:max-content;margin:0 auto}
 /* hauteur ET largeur plafonnées : un logo large ne doit pas écraser un logo carré */
-.partners-track img{max-height:clamp(74px,8.6vw,108px);max-width:clamp(150px,19vw,224px);width:auto;height:auto;object-fit:contain;display:block;opacity:.9;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.partners-track img{max-height:clamp(70px,8.6vw,100px);max-width:clamp(146px,19vw,208px);width:auto;height:auto;object-fit:contain;display:block;opacity:.9;transition:opacity .35s var(--ease),transform .35s var(--ease)}
 /* logo purement typographique et très horizontal : plus large, moins haut, sinon il paraît minuscule */
-.partners-track img.wordmark{max-height:clamp(46px,5.4vw,66px);max-width:clamp(186px,25vw,300px)}
+.partners-track img.wordmark{max-height:clamp(44px,5.4vw,62px);max-width:clamp(178px,25vw,270px)}
 .partners-track>a{display:block;line-height:0;border-radius:3px}
 .partners-track>a:hover img,.partners-track>img:hover{opacity:1;transform:translateY(-3px)}
 .partners-track>a:focus-visible{outline:2px solid var(--accent);outline-offset:7px}
@@ -536,8 +549,10 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   <!-- PARTENAIRES (bande défilante : le défilement s'active seul dès que les logos dépassent la largeur) -->
   <section id="partenaires" class="partners">
     <div class="wrap">
-      <div class="eyebrow reveal">Partenaires</div>
-      <div class="partners-viewport reveal d1" id="partnersViewport">
+      <div class="partners-head reveal"><i aria-hidden="true"></i><span class="eyebrow">Partenaires</span><i aria-hidden="true"></i></div>
+      <div class="partners-row reveal d1">
+        <span class="partners-cap" aria-hidden="true"></span>
+        <div class="partners-viewport" id="partnersViewport">
         <div class="partners-track" id="partnersTrack">
           <!-- Legend’S : pas de lien, le domaine restaurant-legends.lu ne sert aucun site (404 Framer au 05/10/2026). -->
           <img src="assets/partners/legends-schifflange.webp" alt="Legend’S Restaurant &amp; Chalet, Schifflange" width="420" height="356" loading="lazy" decoding="async">
@@ -551,6 +566,8 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
             <img class="wordmark" src="assets/partners/letzsmile.svg" alt="LetzSmile Dental, cabinet dentaire à Strassen" width="268" height="55" loading="lazy" decoding="async">
           </a>
         </div>
+        </div>
+        <span class="partners-cap r" aria-hidden="true"></span>
       </div>
     </div>
   </section>
