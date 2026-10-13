@@ -176,7 +176,7 @@ section{padding:130px 0;position:relative}
 .intro-vig{position:absolute;inset:0;pointer-events:none;background:
   radial-gradient(62% 54% at 50% 34%,transparent 22%,rgba(6,5,4,.42) 66%,rgba(6,5,4,.92) 100%),
   linear-gradient(180deg,rgba(6,5,4,.6) 0%,transparent 24%,transparent 44%,rgba(6,5,4,.9) 82%)}
-.intro-sweep{position:absolute;top:-30%;bottom:-30%;width:40%;left:-48%;pointer-events:none;
+.intro-sweep{position:absolute;top:-30%;bottom:-30%;width:40%;left:-48%;pointer-events:none;will-change:transform;
   background:linear-gradient(100deg,transparent 0%,rgba(232,215,180,.05) 24%,rgba(232,215,180,.13) 42%,rgba(255,246,224,.2) 50%,rgba(232,215,180,.13) 58%,rgba(232,215,180,.05) 76%,transparent 100%);
   animation:iSweep 2.6s var(--ease) .9s forwards}
 .intro-grain{position:absolute;inset:0;pointer-events:none;opacity:.05;
@@ -214,7 +214,7 @@ section{padding:130px 0;position:relative}
 
 @keyframes iFade{to{opacity:1}}
 @keyframes iPush{to{transform:scale(1)}}
-@keyframes iSweep{to{left:120%}}
+@keyframes iSweep{from{transform:translateX(0)}to{transform:translateX(420%)}}
 @keyframes iUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes iOut{to{opacity:0;transform:translateY(-10px)}}
 @keyframes iDim{to{opacity:.74}}
