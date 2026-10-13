@@ -167,11 +167,15 @@ section{padding:130px 0;position:relative}
 .intro-stage{position:absolute;left:0;right:0;top:0;height:68%;
   display:flex;align-items:center;justify-content:center;
   opacity:0;animation:iFade 2s var(--ease) .25s forwards}
-.intro-frame{position:relative;height:min(62vh,560px);
+/* le masque reste fixe sur le cadre ; seul l'intérieur bouge, donc la carte
+   graphique compose le travelling au lieu de recalculer le masque à chaque image */
+.intro-frame{position:relative;height:min(62vh,560px);width:max-content;
   -webkit-mask-image:radial-gradient(68% 62% at 50% 46%,#000 52%,rgba(0,0,0,.6) 78%,transparent 100%);
-  mask-image:radial-gradient(68% 62% at 50% 46%,#000 52%,rgba(0,0,0,.6) 78%,transparent 100%);
-  transform:scale(1.12);animation:iPush 9.5s linear .25s forwards}
-.intro-frame img{height:100%;width:auto;display:block;filter:saturate(.92) contrast(1.05)}
+  mask-image:radial-gradient(68% 62% at 50% 46%,#000 52%,rgba(0,0,0,.6) 78%,transparent 100%)}
+.intro-zoom{height:100%;width:max-content;transform:scale(1.12);
+  will-change:transform;backface-visibility:hidden;
+  animation:iPush 9.5s linear .25s forwards}
+.intro-zoom img{height:100%;width:auto;display:block;filter:saturate(.92) contrast(1.05)}
 
 .intro-vig{position:absolute;inset:0;pointer-events:none;background:
   radial-gradient(62% 54% at 50% 34%,transparent 22%,rgba(6,5,4,.42) 66%,rgba(6,5,4,.92) 100%),
@@ -396,7 +400,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <body>
 <div class="intro" id="intro">
   <div class="intro-back"></div>
-  <div class="intro-stage"><div class="intro-frame"><img src="assets/escoffier.webp" alt="" aria-hidden="true"></div></div>
+  <div class="intro-stage"><div class="intro-frame"><div class="intro-zoom"><img src="assets/escoffier.webp" alt="" aria-hidden="true"></div></div></div>
   <div class="intro-vig"></div>
   <div class="intro-sweep"></div>
   <div class="intro-dim"></div>
