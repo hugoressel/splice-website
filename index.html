@@ -737,8 +737,12 @@ heroVideo.addEventListener('error',()=>{
 wideMQ.addEventListener('change',applyVideoMotion);
 reduceMQ.addEventListener('change',applyVideoMotion);
 /* pendant l'intro, on ne télécharge pas la vidéo : elle n'est pas visible et elle
-   encombrerait le chargement. Elle démarre à la fermeture de l'intro. */
-if(document.getElementById('intro')){window.__startHero=applyVideoMotion;}
+   encombrerait le chargement. Elle démarre à la fermeture de l'intro.
+   Même condition que le script de l'intro plus bas : si l'intro ne joue pas (visite
+   déjà faite dans la session, ou mouvement réduit), elle ne fermera jamais et ne
+   lancera donc rien, il faut démarrer la vidéo tout de suite. */
+const introWillPlay=document.getElementById('intro')&&!document.documentElement.classList.contains('no-intro');
+if(introWillPlay){window.__startHero=applyVideoMotion;}
 else{applyVideoMotion();}
 
 /* nav */
