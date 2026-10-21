@@ -316,7 +316,10 @@ body.intro-lock{overflow:hidden}
 .lev-svc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
 .lev-svc span{border:1px solid var(--accent-muted);border-radius:100px;padding:6px 13px;font-size:13px;color:var(--text-primary);transition:border-color .3s var(--ease)}
 .lev:hover .lev-svc span{border-color:rgba(200,169,110,.32)}
-.lev-foot{margin-top:auto;display:flex;align-items:center;justify-content:flex-start;gap:12px;border-top:1px solid var(--accent-muted);padding-top:18px}
+.lev-foot{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--accent-muted);padding-top:18px}
+.lev-devis{display:flex;flex-direction:column;gap:3px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-secondary)}
+.lev-devis strong{font-family:'Syne',sans-serif;font-weight:700;font-size:19px;letter-spacing:0;text-transform:none;color:var(--accent);line-height:1}
+.lev-devis strong em{font-style:normal;font-size:12px;color:var(--text-secondary);font-weight:400}
 .lev-cta{color:var(--text-secondary);font-size:14px;display:inline-flex;gap:6px;align-items:center;white-space:nowrap;transition:color .3s var(--ease),gap .3s var(--ease)}
 .lev-cta:hover{color:var(--accent);gap:10px}
 
@@ -482,24 +485,73 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 
   <hr class="divider">
 
-  <!-- POURQUOI SPLICE / HISTOIRE -->
-  <section id="histoire" class="story">
+  <!-- LEVIERS / PÔLES -->
+  <section id="leviers">
     <div class="wrap">
-      <div class="s-label reveal">Pourquoi SPLICE</div>
-      <h2 class="s-title reveal d1">On vient de la salle,<br>pas du <span class="gold">bureau</span>.</h2>
-      <div class="story-body">
-        <p class="reveal d1">Plus de dix ans à faire tourner des restaurants, pour de vrai. Les arrêts maladie un soir de complet, les équipes qui ne se stabilisent jamais, la régularité à tenir en cuisine, au bar, en salle. Et ce téléphone, 24h/24.</p>
-        <p class="reveal d2">Derrière, toujours la même chose : rien n’est noté nulle part. Une réservation de 12 sur un bout de papier perdu, un plat qui change selon qui cuisine faute de fiche technique, un serveur qui ne connaît pas la carte. On croit que sans nous, rien ne tient. En vrai, il manque juste une structure.</p>
-        <p class="reveal d2">Ça, on sait le régler, parce qu’on l’a vécu et corrigé nous-mêmes. On a déjà structuré et automatisé des restaurants : plannings qui tiennent, fiches techniques optimisées, équipes responsabilisées. Hugo et Dylan, deux enfants du sud de la France, avec une idée née à Cannes.</p>
-        <p class="reveal d3 story-sign">SPLICE, c’est ça. Pas une agence qui a choisi la restauration comme niche : des restaurateurs qui connaissent le métier de l’intérieur et aident d’autres restaurateurs à reprendre le contrôle, et à remplir leurs tables.</p>
-      </div>
-      <div class="founders reveal d3">
-        <div class="founder"><div class="m-avatar">H</div><div class="m-name">Hugo</div><div class="m-role">Co-fondateur · Digital &amp; Ops</div></div>
-        <div class="founder"><div class="m-avatar">D</div><div class="m-name">Dylan</div><div class="m-role">Co-fondateur · Commercial &amp; Gestion</div></div>
-      </div>
-      <div class="specialists reveal d3">
-        <span class="sp-lbl">Réseau de spécialistes</span>
-        <span class="sp-txt">On dirige, on reste responsable du pilotage et de la performance des leviers qu’on active, et on mobilise les bons spécialistes quand il le faut, comme <b>Kylian</b>, réalisateur passé par Sparkle, qui a signé du contenu pour de grandes marques.</span>
+      <div class="s-label reveal">Nos pôles</div>
+      <h2 class="s-title reveal d1">Quatre pôles. Une seule mission :<br>faire grandir votre établissement.</h2>
+      <p class="s-sub reveal d2">On active seulement ce dont votre établissement a besoin, dans l’ordre qui a du sens pour vous. Prix d’entrée affichés, devis précis après diagnostic.</p>
+      <div class="lev-grid">
+        <div class="lev reveal d1">
+          <div class="lev-bignum">01</div>
+          <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.8 3.2-4.5 5.8-4.5 9s1.7 5.8 4.5 9M12 3c2.8 3.2 4.5 5.8 4.5 9s-1.7 5.8-4.5 9M3 12h18"/></svg></div>
+          <div class="num">Pôle 01</div>
+          <h3>Visibilité &amp; présence</h3>
+          <div class="lev-tech">Digital</div>
+          <div class="lev-kicker">Être trouvé, donner envie, transformer l’attention en réservations.</div>
+          <div class="lev-svc">
+            <span>Site internet</span><span>SEO local</span><span>Fiche Google</span><span>Réservation en ligne</span><span>Carte &amp; menus en ligne</span><span>E-réputation &amp; avis</span><span>Emailing &amp; CRM</span>
+          </div>
+          <div class="lev-foot">
+            <span class="lev-devis">À partir de<strong>1&nbsp;500&nbsp;€<em>/projet</em></strong></span>
+            <a href="pole-digital.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
+          </div>
+        </div>
+        <div class="lev reveal d2">
+          <div class="lev-bignum">02</div>
+          <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="13" height="10" rx="2"/><path d="M15 10.5l5.5-3.5v10l-5.5-3.5"/></svg></div>
+          <div class="num">Pôle 02</div>
+          <h3>Contenu &amp; image</h3>
+          <div class="lev-tech">Création</div>
+          <div class="lev-kicker">Faire désirer votre établissement avant même d’y entrer.</div>
+          <div class="lev-svc">
+            <span>Réseaux sociaux</span><span>Publicité &amp; ads</span><span>Shooting photo &amp; vidéo</span><span>Reels &amp; TikTok</span><span>Community management</span><span>Stratégie éditoriale</span>
+          </div>
+          <div class="lev-foot">
+            <span class="lev-devis">À partir de<strong>2&nbsp;000&nbsp;€<em>/mois</em></strong></span>
+            <a href="pole-contenu.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
+          </div>
+        </div>
+        <div class="lev reveal d3">
+          <div class="lev-bignum">03</div>
+          <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+          <div class="num">Pôle 03</div>
+          <h3>Gestion restaurant et pilotage</h3>
+          <div class="lev-tech">Gestion</div>
+          <div class="lev-kicker">Transformer une visite en expérience qu’on veut revivre et recommander.</div>
+          <div class="lev-svc">
+            <span>Formation managers</span><span>Formation serveurs</span><span>Recrutement &amp; extras</span><span>Vente additionnelle</span><span>Organisation du service</span><span>Pilotage terrain</span>
+          </div>
+          <div class="lev-foot">
+            <span class="lev-devis">À partir de<strong>2&nbsp;200&nbsp;€<em>/mois</em></strong></span>
+            <a href="pole-gestion.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
+          </div>
+        </div>
+        <div class="lev reveal d1">
+          <div class="lev-bignum">04</div>
+          <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M5 18a7 7 0 0 1 14 0"/><path d="M12 8V6"/><circle cx="12" cy="4.5" r="1"/></svg></div>
+          <div class="num">Pôle 04</div>
+          <h3>Produit &amp; rentabilité</h3>
+          <div class="lev-tech">Cuisine</div>
+          <div class="lev-kicker">Remettre de la régularité dans l’assiette et de la marge dans la carte, plat après plat.</div>
+          <div class="lev-svc">
+            <span>Audit produit</span><span>Régularité</span><span>Menu engineering</span><span>Marges par plat</span><span>Food cost</span><span>Fiches techniques</span><span>Formation passe</span>
+          </div>
+          <div class="lev-foot">
+            <span class="lev-devis">À partir de<strong>1&nbsp;800&nbsp;€<em>/mission</em></strong></span>
+            <a href="pole-produit.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -528,69 +580,24 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 
   <hr class="divider">
 
-  <!-- LEVIERS / PÔLES -->
-  <section id="leviers">
+  <!-- POURQUOI SPLICE / HISTOIRE -->
+  <section id="histoire" class="story">
     <div class="wrap">
-      <div class="s-label reveal">Nos pôles</div>
-      <h2 class="s-title reveal d1">Quatre pôles. Une seule mission :<br>faire grandir votre établissement.</h2>
-      <p class="s-sub reveal d2">On active seulement ce dont votre établissement a besoin, dans l’ordre qui a du sens pour vous, après diagnostic.</p>
-      <div class="lev-grid">
-        <div class="lev reveal d1">
-          <div class="lev-bignum">01</div>
-          <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.8 3.2-4.5 5.8-4.5 9s1.7 5.8 4.5 9M12 3c2.8 3.2 4.5 5.8 4.5 9s-1.7 5.8-4.5 9M3 12h18"/></svg></div>
-          <div class="num">Pôle 01</div>
-          <h3>Visibilité &amp; présence</h3>
-          <div class="lev-tech">Digital</div>
-          <div class="lev-kicker">Être trouvé, donner envie, transformer l’attention en réservations.</div>
-          <div class="lev-svc">
-            <span>Site internet</span><span>SEO local</span><span>Fiche Google</span><span>Réservation en ligne</span><span>Carte &amp; menus en ligne</span><span>E-réputation &amp; avis</span><span>Emailing &amp; CRM</span>
-          </div>
-          <div class="lev-foot">
-            <a href="pole-digital.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
-          </div>
-        </div>
-        <div class="lev reveal d2">
-          <div class="lev-bignum">02</div>
-          <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="13" height="10" rx="2"/><path d="M15 10.5l5.5-3.5v10l-5.5-3.5"/></svg></div>
-          <div class="num">Pôle 02</div>
-          <h3>Contenu &amp; image</h3>
-          <div class="lev-tech">Création</div>
-          <div class="lev-kicker">Faire désirer votre établissement avant même d’y entrer.</div>
-          <div class="lev-svc">
-            <span>Réseaux sociaux</span><span>Publicité &amp; ads</span><span>Shooting photo &amp; vidéo</span><span>Reels &amp; TikTok</span><span>Community management</span><span>Stratégie éditoriale</span>
-          </div>
-          <div class="lev-foot">
-            <a href="pole-contenu.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
-          </div>
-        </div>
-        <div class="lev reveal d3">
-          <div class="lev-bignum">03</div>
-          <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div>
-          <div class="num">Pôle 03</div>
-          <h3>Gestion restaurant et pilotage</h3>
-          <div class="lev-tech">Gestion</div>
-          <div class="lev-kicker">Transformer une visite en expérience qu’on veut revivre et recommander.</div>
-          <div class="lev-svc">
-            <span>Formation managers</span><span>Formation serveurs</span><span>Recrutement &amp; extras</span><span>Vente additionnelle</span><span>Organisation du service</span><span>Pilotage terrain</span>
-          </div>
-          <div class="lev-foot">
-            <a href="pole-gestion.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
-          </div>
-        </div>
-        <div class="lev reveal d1">
-          <div class="lev-bignum">04</div>
-          <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M5 18a7 7 0 0 1 14 0"/><path d="M12 8V6"/><circle cx="12" cy="4.5" r="1"/></svg></div>
-          <div class="num">Pôle 04</div>
-          <h3>Produit &amp; rentabilité</h3>
-          <div class="lev-tech">Cuisine</div>
-          <div class="lev-kicker">Remettre de la régularité dans l’assiette et de la marge dans la carte, plat après plat.</div>
-          <div class="lev-svc">
-            <span>Audit produit</span><span>Régularité</span><span>Menu engineering</span><span>Marges par plat</span><span>Food cost</span><span>Fiches techniques</span><span>Formation passe</span>
-          </div>
-          <div class="lev-foot">
-            <a href="pole-produit.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
-          </div>
-        </div>
+      <div class="s-label reveal">Pourquoi SPLICE</div>
+      <h2 class="s-title reveal d1">On vient de la salle,<br>pas du <span class="gold">bureau</span>.</h2>
+      <div class="story-body">
+        <p class="reveal d1">Plus de dix ans à faire tourner des restaurants, pour de vrai. Les arrêts maladie un soir de complet, les équipes qui ne se stabilisent jamais, la régularité à tenir en cuisine, au bar, en salle. Et ce téléphone, 24h/24.</p>
+        <p class="reveal d2">Derrière, toujours la même chose : rien n’est noté nulle part. Une réservation de 12 sur un bout de papier perdu, un plat qui change selon qui cuisine faute de fiche technique, un serveur qui ne connaît pas la carte. On croit que sans nous, rien ne tient. En vrai, il manque juste une structure.</p>
+        <p class="reveal d2">Ça, on sait le régler, parce qu’on l’a vécu et corrigé nous-mêmes. On a déjà structuré et automatisé des restaurants : plannings qui tiennent, fiches techniques optimisées, équipes responsabilisées. Hugo et Dylan, deux enfants du sud de la France, avec une idée née à Cannes.</p>
+        <p class="reveal d3 story-sign">SPLICE, c’est ça. Pas une agence qui a choisi la restauration comme niche : des restaurateurs qui connaissent le métier de l’intérieur et aident d’autres restaurateurs à reprendre le contrôle, et à remplir leurs tables.</p>
+      </div>
+      <div class="founders reveal d3">
+        <div class="founder"><div class="m-avatar">H</div><div class="m-name">Hugo</div><div class="m-role">Co-fondateur · Digital &amp; Ops</div></div>
+        <div class="founder"><div class="m-avatar">D</div><div class="m-name">Dylan</div><div class="m-role">Co-fondateur · Commercial &amp; Gestion</div></div>
+      </div>
+      <div class="specialists reveal d3">
+        <span class="sp-lbl">Réseau de spécialistes</span>
+        <span class="sp-txt">On dirige, on reste responsable du pilotage et de la performance des leviers qu’on active, et on mobilise les bons spécialistes quand il le faut, comme <b>Kylian</b>, réalisateur passé par Sparkle, qui a signé du contenu pour de grandes marques.</span>
       </div>
     </div>
   </section>
