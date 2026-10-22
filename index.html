@@ -300,28 +300,54 @@ body.intro-lock{overflow:hidden}
 .diag-key b{color:var(--text-primary);font-weight:400}
 
 /* ====== LEVIERS (pôles) ====== */
-.lev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
-.lev{position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--accent-muted);border-radius:6px;padding:36px 30px 28px;display:flex;flex-direction:column;transition:border-color .4s var(--ease),transform .4s var(--ease),box-shadow .4s var(--ease)}
+.lev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:52px}
+/* La carte entière est le lien vers le pôle. --pole teinte le halo, le numéro géant
+   et l'icône ; la structure (bordure, filet, textes, prix, flèche) reste à l'or de la marque. */
+.lev{--pole:var(--accent);--pole-rgb:200,169,110;
+  position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;
+  background:linear-gradient(165deg,var(--panel-2) 0%,var(--panel) 60%);
+  border:1px solid var(--accent-muted);border-radius:10px;padding:36px 30px 26px;
+  box-shadow:inset 0 1px 0 rgba(243,238,228,.05),0 18px 44px -36px rgba(5,4,2,.9);
+  transition:border-color .4s var(--ease),transform .4s var(--ease),box-shadow .4s var(--ease)}
+.lev.p01{--pole:#C8A96E;--pole-rgb:200,169,110}
+.lev.p02{--pole:#CE8E6A;--pole-rgb:206,142,106}
+.lev.p03{--pole:#BFA76B;--pole-rgb:191,167,107}
+.lev.p04{--pole:#C47A4E;--pole-rgb:196,122,78}
+.lev::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(64% 54% at 100% 0%,rgba(var(--pole-rgb),.18),transparent 70%);
+  opacity:.8;transition:opacity .45s var(--ease)}
 .lev::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.4;transition:opacity .4s var(--ease)}
-.lev:hover{border-color:var(--accent);transform:translateY(-6px);box-shadow:0 26px 64px -32px rgba(200,169,110,.55)}
+.lev:hover{border-color:var(--accent);transform:translateY(-6px);
+  box-shadow:inset 0 1px 0 rgba(243,238,228,.08),0 30px 70px -34px rgba(var(--pole-rgb),.6)}
 .lev:hover::before{opacity:1}
-.lev-bignum{position:absolute;top:14px;right:24px;font-family:'Syne',sans-serif;font-weight:800;font-size:66px;line-height:1;color:var(--accent);opacity:.08;pointer-events:none}
-.lev-ico{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--accent-muted);background:var(--accent-muted);margin-bottom:22px;transition:transform .4s var(--ease)}
-.lev:hover .lev-ico{transform:scale(1.06)}
-.lev-ico svg{width:26px;height:26px;color:var(--accent)}
+.lev:hover::after{opacity:1}
+.lev-bignum{position:absolute;top:8px;right:18px;font-family:'Syne',sans-serif;font-weight:800;font-size:96px;line-height:1;
+  color:transparent;background:linear-gradient(180deg,rgba(var(--pole-rgb),.34),rgba(var(--pole-rgb),.05));
+  -webkit-background-clip:text;background-clip:text;pointer-events:none;transition:transform .5s var(--ease)}
+.lev:hover .lev-bignum{transform:translateY(-3px)}
+.lev-ico{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(var(--pole-rgb),.45);
+  background:linear-gradient(158deg,rgba(var(--pole-rgb),.24),rgba(var(--pole-rgb),.05));
+  box-shadow:0 0 0 6px rgba(var(--pole-rgb),.05),inset 0 1px 0 rgba(243,238,228,.12);
+  margin-bottom:22px;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.lev:hover .lev-ico{transform:scale(1.07);box-shadow:0 0 0 11px rgba(var(--pole-rgb),.07),0 12px 28px -14px rgba(var(--pole-rgb),.65),inset 0 1px 0 rgba(243,238,228,.16)}
+.lev-ico svg{width:26px;height:26px;color:var(--pole)}
 .lev .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--text-secondary);margin-bottom:8px}
 .lev h3{font-size:25px;margin-bottom:4px}
 .lev .lev-tech{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .lev-kicker{color:var(--text-secondary);font-size:15px;line-height:1.5;margin-bottom:24px}
 .lev-svc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.lev-svc span{border:1px solid var(--accent-muted);border-radius:100px;padding:6px 13px;font-size:13px;color:var(--text-primary);transition:border-color .3s var(--ease)}
-.lev:hover .lev-svc span{border-color:rgba(200,169,110,.32)}
+.lev-svc span{border:1px solid var(--accent-muted);border-radius:100px;padding:6px 13px;font-size:13px;color:var(--text-primary);transition:border-color .3s var(--ease),background .3s var(--ease)}
+.lev:hover .lev-svc span{border-color:rgba(200,169,110,.32);background:rgba(200,169,110,.05)}
 .lev-foot{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--accent-muted);padding-top:18px}
 .lev-devis{display:flex;flex-direction:column;gap:3px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-secondary)}
-.lev-devis strong{font-family:'Syne',sans-serif;font-weight:700;font-size:19px;letter-spacing:0;text-transform:none;color:var(--accent);line-height:1}
+.lev-devis strong{font-family:'Syne',sans-serif;font-weight:700;font-size:21px;letter-spacing:0;text-transform:none;color:var(--accent);line-height:1}
 .lev-devis strong em{font-style:normal;font-size:12px;color:var(--text-secondary);font-weight:400}
-.lev-cta{color:var(--text-secondary);font-size:14px;display:inline-flex;gap:6px;align-items:center;white-space:nowrap;transition:color .3s var(--ease),gap .3s var(--ease)}
-.lev-cta:hover{color:var(--accent);gap:10px}
+/* pastille flèche : seule indication que la carte est cliquable, le lien texte a été retiré */
+.lev-go{width:38px;height:38px;flex:none;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--accent-muted);color:var(--accent);font-size:17px;line-height:1;
+  transition:background .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease),transform .35s var(--ease)}
+.lev:hover .lev-go{background:var(--accent);border-color:var(--accent);color:var(--canvas);transform:translateX(3px)}
 
 /* ====== COUVERTS band ====== */
 .couverts{text-align:center}
@@ -492,7 +518,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
       <h2 class="s-title reveal d1">Quatre pôles. Une seule mission :<br>faire grandir votre établissement.</h2>
       <p class="s-sub reveal d2">On active seulement ce dont votre établissement a besoin, dans l’ordre qui a du sens pour vous. Prix d’entrée affichés, devis précis après diagnostic.</p>
       <div class="lev-grid">
-        <div class="lev reveal d1">
+        <a class="lev p01 reveal d1" href="pole-digital.html" aria-label="Pôle 01 — Visibilité &amp; présence">
           <div class="lev-bignum">01</div>
           <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.8 3.2-4.5 5.8-4.5 9s1.7 5.8 4.5 9M12 3c2.8 3.2 4.5 5.8 4.5 9s-1.7 5.8-4.5 9M3 12h18"/></svg></div>
           <div class="num">Pôle 01</div>
@@ -504,10 +530,10 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
           </div>
           <div class="lev-foot">
             <span class="lev-devis">À partir de<strong>1&nbsp;500&nbsp;€<em>/projet</em></strong></span>
-            <a href="pole-digital.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
+            <span class="lev-go" aria-hidden="true">→</span>
           </div>
-        </div>
-        <div class="lev reveal d2">
+        </a>
+        <a class="lev p02 reveal d2" href="pole-contenu.html" aria-label="Pôle 02 — Contenu &amp; image">
           <div class="lev-bignum">02</div>
           <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="13" height="10" rx="2"/><path d="M15 10.5l5.5-3.5v10l-5.5-3.5"/></svg></div>
           <div class="num">Pôle 02</div>
@@ -519,10 +545,10 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
           </div>
           <div class="lev-foot">
             <span class="lev-devis">À partir de<strong>2&nbsp;000&nbsp;€<em>/mois</em></strong></span>
-            <a href="pole-contenu.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
+            <span class="lev-go" aria-hidden="true">→</span>
           </div>
-        </div>
-        <div class="lev reveal d3">
+        </a>
+        <a class="lev p03 reveal d3" href="pole-gestion.html" aria-label="Pôle 03 — Gestion restaurant et pilotage">
           <div class="lev-bignum">03</div>
           <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg></div>
           <div class="num">Pôle 03</div>
@@ -534,10 +560,10 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
           </div>
           <div class="lev-foot">
             <span class="lev-devis">À partir de<strong>2&nbsp;200&nbsp;€<em>/mois</em></strong></span>
-            <a href="pole-gestion.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
+            <span class="lev-go" aria-hidden="true">→</span>
           </div>
-        </div>
-        <div class="lev reveal d1">
+        </a>
+        <a class="lev p04 reveal d1" href="pole-produit.html" aria-label="Pôle 04 — Produit &amp; rentabilité">
           <div class="lev-bignum">04</div>
           <div class="lev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M5 18a7 7 0 0 1 14 0"/><path d="M12 8V6"/><circle cx="12" cy="4.5" r="1"/></svg></div>
           <div class="num">Pôle 04</div>
@@ -549,9 +575,9 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
           </div>
           <div class="lev-foot">
             <span class="lev-devis">À partir de<strong>1&nbsp;800&nbsp;€<em>/mission</em></strong></span>
-            <a href="pole-produit.html" class="lev-cta">Découvrir le pôle <span>→</span></a>
+            <span class="lev-go" aria-hidden="true">→</span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
