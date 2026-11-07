@@ -18,17 +18,22 @@
 <meta property="og:url" content="https://splice-agency.com/">
 <meta property="og:locale" content="fr_LU">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SPLICE · Agence de croissance · Luxembourg">
+<meta name="twitter:description" content="Deux directeurs de restaurant qui activent les bons leviers pour faire grandir votre établissement. On remplit vos tables.">
 <meta name="twitter:image" content="https://splice-agency.com/assets/og-image-v2.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B0A08'/%3E%3Ctext x='16' y='22' font-family='Syne,sans-serif' font-size='16' font-weight='800' text-anchor='middle' fill='%23C8A96E'%3ES%3C/text%3E%3C/svg%3E">
-<script>try{if(sessionStorage.getItem("spliceIntroSeen")||matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.className+=" no-intro";}catch(e){}</script>
+<script>document.documentElement.className+=" js";</script>
+<link rel="preload" as="image" href="assets/hero-poster.webp" type="image/webp" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/syne.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/dm-sans.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jetbrains-mono.woff2" crossorigin>
 <style>@font-face{font-family:'Syne';font-style:normal;font-weight:700 800;font-display:swap;src:url(assets/fonts/syne.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'DM Sans';font-style:normal;font-weight:300 400;font-display:swap;src:url(assets/fonts/dm-sans.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/jetbrains-mono.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}</style>
+<!-- TODO-HUGO : ajouter "address" (PostalAddress) et "logo" ici uniquement une fois l'adresse confirmée et un fichier logo officiel publié. Rien n'est inventé en attendant. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://splice-agency.com/#organization",
   "name": "SPLICE",
   "description": "Partenaire de croissance des restaurateurs au Luxembourg : visibilité, contenu, performance et produit. Agence marketing et digitale spécialisée dans la restauration.",
   "url": "https://splice-agency.com",
@@ -133,15 +138,20 @@ nav.solid{background:rgba(11,10,8,.9);backdrop-filter:blur(12px);border-bottom:1
 .hero-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 240px 70px rgba(5,4,2,.55)}
 .hero-content{position:relative;z-index:2;max-width:1180px;width:100%;margin:0 auto;padding:0 40px;text-shadow:var(--tshadow)}
 .hero-kicker{color:var(--accent);font-size:13px;margin-bottom:26px;opacity:0;animation:heroUp .9s var(--ease) .2s forwards}
-.hero-h1{font-size:clamp(52px,10vw,132px);line-height:.9;margin-bottom:30px}
+.hero-h1{font-size:clamp(30px,3.7vw,54px);line-height:1.04;margin-bottom:22px}
+.hero-slogan{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(20px,2.6vw,32px);letter-spacing:-.01em;color:var(--text-primary);margin-bottom:22px;opacity:0;animation:heroUp .9s var(--ease) .7s forwards}
 .hero-h1 span.l{display:block;overflow:hidden}
 .hero-h1 span.l i{display:block;font-style:normal;transform:translateY(110%);animation:lineUp 1s var(--ease) forwards}
 .hero-h1 .l:nth-child(1) i{animation-delay:.35s}
-.hero-h1 .l:nth-child(2) i{animation-delay:.5s;color:var(--accent);text-shadow:0 0 70px rgba(200,169,110,.3)}
+.hero-h1 .l:nth-child(2) i{animation-delay:.5s}
+.hero-h1 .l:nth-child(3) i{animation-delay:.65s;color:var(--accent);text-shadow:0 0 70px rgba(200,169,110,.3)}
 .hero-sub{font-size:clamp(16px,2vw,20px);max-width:50ch;color:var(--text-primary);line-height:1.6;margin-bottom:36px;opacity:0;animation:heroUp .9s var(--ease) .8s forwards}
 .hero-cta{display:flex;gap:18px;flex-wrap:wrap;align-items:center;opacity:0;animation:heroUp .9s var(--ease) .95s forwards}
 .hero-cta .ghostlink{font-size:14px;color:var(--text-secondary);display:inline-flex;gap:7px;align-items:center;transition:color .3s var(--ease),gap .3s var(--ease)}
 .hero-cta .ghostlink:hover{color:var(--accent);gap:11px}
+.hero-tools{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-tool{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-secondary);background:rgba(11,10,8,.55);border:1px solid var(--accent-muted);border-radius:2px;padding:10px 16px;cursor:pointer;transition:color .25s,border-color .25s}
+.hero-tool:hover{color:var(--accent);border-color:var(--accent)}
 @keyframes heroUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @keyframes lineUp{to{transform:translateY(0)}}
 
@@ -167,9 +177,10 @@ section{padding:130px 0;position:relative}
 .s-sub{font-size:clamp(16px,2vw,20px);color:var(--text-secondary);max-width:52ch;line-height:1.6}
 .divider{height:1px;border:0;background:linear-gradient(90deg,transparent,var(--accent-muted),transparent);max-width:1180px;margin:0 auto}
 
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+/* amélioration progressive : visible par défaut, masqué seulement si le JS a posé .js sur <html> */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal.d1{transition-delay:.08s}.js .reveal.d2{transition-delay:.16s}.js .reveal.d3{transition-delay:.24s}
 
 /* ====== AUTONOMIE / bandes centrées ====== */
 .band{text-align:center}
@@ -178,8 +189,10 @@ section{padding:130px 0;position:relative}
 .band p{font-size:clamp(16px,1.7vw,20px);color:var(--text-secondary);max-width:60ch;margin:0 auto;line-height:1.6}
 
 /* ====== INTRO ESCOFFIER ====== */
-.intro{position:fixed;inset:0;z-index:9999;background:#060504;overflow:hidden;
+/* l'intro n'est jamais affichée à l'arrivée : elle ne joue que si le visiteur la demande (bouton « Voir l'intro ») */
+.intro{display:none;position:fixed;inset:0;z-index:9999;background:#060504;overflow:hidden;
   opacity:1;transition:opacity .9s var(--ease)}
+.intro.playing{display:block}
 .intro.done{opacity:0;pointer-events:none}
 
 .intro-back{position:absolute;inset:-8%;background:url(assets/escoffier-blur.webp) center/cover no-repeat;
@@ -251,8 +264,7 @@ section{padding:130px 0;position:relative}
 .testnote{position:fixed;left:18px;bottom:18px;z-index:500;font-family:'JetBrains Mono',monospace;
   font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-secondary);
   background:rgba(11,10,8,.82);border:1px solid var(--accent-muted);border-radius:2px;padding:10px 14px}
-@media (prefers-reduced-motion:reduce){.intro{display:none}}
-.no-intro .intro{display:none !important}
+@media (prefers-reduced-motion:reduce){.intro{display:none !important}}
 body.intro-lock{overflow:hidden}
 
 /* ====== PARTENAIRES ====== */
@@ -450,15 +462,15 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   .fillrail{display:none}
   .hero-scrim{background:linear-gradient(0deg,rgba(11,10,8,.86),rgba(11,10,8,.25) 55%,rgba(11,10,8,.5))}
 }
-@media (max-width:560px){.lev-grid{grid-template-columns:1fr}.hero-h1{font-size:clamp(40px,11vw,52px)}.s-title{font-size:clamp(26px,7vw,32px)}.couverts h2{font-size:clamp(26px,7vw,30px)}.hero-kicker,.mono,.s-label{letter-spacing:.12em}h1,h2,h3{overflow-wrap:anywhere}}
+@media (max-width:560px){.lev-grid{grid-template-columns:1fr}.hero-h1{font-size:clamp(25px,6.4vw,32px)}.s-title{font-size:clamp(26px,7vw,32px)}.couverts h2{font-size:clamp(26px,7vw,30px)}.hero-kicker,.mono,.s-label{letter-spacing:.12em}h1,h2,h3{overflow-wrap:anywhere}}
 @media (pointer:coarse){.btn,.nav-cta{min-height:44px}}
 
 /* ====== REDUCED MOTION ====== */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
-  .reveal{opacity:1;transform:none}
+  .js .reveal{opacity:1;transform:none}
   .hero-h1 span.l i{transform:none}
-  .hero-kicker,.hero-sub,.hero-cta{opacity:1}
+  .hero-kicker,.hero-slogan,.hero-sub,.hero-cta{opacity:1}
 }
 
 /* ===== Canal WhatsApp Business =====
@@ -481,14 +493,14 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 </style>
 </head>
 <body>
-<div class="intro" id="intro">
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Introduction : Escoffier et SPLICE">
   <div class="intro-back"></div>
-  <div class="intro-stage"><div class="intro-frame"><div class="intro-zoom"><img src="assets/escoffier.webp" alt="" aria-hidden="true"></div></div></div>
+  <div class="intro-stage"><div class="intro-frame"><div class="intro-zoom"><img src="assets/escoffier.webp" width="655" height="900" alt="" aria-hidden="true" loading="lazy" decoding="async"></div></div></div>
   <div class="intro-vig"></div>
   <div class="intro-sweep"></div>
   <div class="intro-dim"></div>
   <div class="intro-grain"></div>
-  <button class="intro-skip" id="skip" type="button">Passer</button>
+  <button class="intro-skip" id="skip" type="button">Fermer</button>
   <div class="intro-copy">
     <div class="intro-year">Guide Culinaire &middot; 1903</div>
     <div class="intro-lines">
@@ -540,13 +552,20 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
   <div class="hero-content">
     <div class="hero-kicker mono">Partenaire de croissance des restaurateurs · Luxembourg</div>
     <h1 class="hero-h1">
-      <span class="l"><i>On remplit</i></span>
-      <span class="l"><i>vos tables.</i></span>
+      <span class="l"><i>Agence de croissance</i></span>
+      <span class="l"><i>pour restaurants</i></span>
+      <span class="l"><i>au Luxembourg</i></span>
     </h1>
+    <p class="hero-slogan">On remplit vos tables.</p>
     <p class="hero-sub">Deux directeurs de restaurant qui connaissent votre métier de l’intérieur. On identifie ce qui freine votre établissement, et on active les bons leviers pour le faire grandir.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">Demander mon diagnostic</a>
       <a href="#methode" class="ghostlink">Comment on travaille <span>→</span></a>
+    </div>
+    <!-- Contrôles volontaires : ni la vidéo ni l'intro ne se chargent ou ne se lancent sans clic. Masqués tant que le JS n'est pas actif. -->
+    <div class="hero-tools" id="heroTools" hidden>
+      <button type="button" class="hero-tool" id="videoToggle" aria-pressed="false">Lancer la vidéo</button>
+      <button type="button" class="hero-tool" id="introPlay">Voir l&rsquo;intro</button>
     </div>
   </div>
 </section>
@@ -776,7 +795,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
           </select>
           <textarea name="message" placeholder="En quelques mots, où vous en êtes (facultatif)"></textarea>
           <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <label class="form-consent"><input type="checkbox" name="consent" required> J’accepte que SPLICE me recontacte au sujet de ma demande. <a href="confidentialite.html" target="_blank" rel="noopener">Confidentialité</a></label>
+          <label class="form-consent"><input type="checkbox" name="consent" required> J’accepte que SPLICE me recontacte au sujet de ma demande. <a href="/confidentialite.html" target="_blank" rel="noopener">Confidentialité</a></label>
           <button type="submit" class="btn btn-primary">Demander mon diagnostic</button>
         </div>
         <div class="form-msg form-success">Reçu. On revient vers vous sous 24h.</div>
@@ -797,7 +816,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
     <div class="footer-tag">Partenaire de croissance des restaurateurs · « On remplit vos tables. »</div>
   </div>
   <div class="footer-right">
-    <a href="https://www.instagram.com/splice_lux/" target="_blank" rel="noopener">@splice_lux</a> · <a href="mailto:contact@splice-agency.com">contact@splice-agency.com</a> · <a href="https://wa.me/352621229300?text=Bonjour%20SPLICE%2C%20je%20souhaite%20un%20diagnostic%20croissance%20pour%20mon%20%C3%A9tablissement." target="_blank" rel="noopener" data-source="footer">WhatsApp +352 621 229 300</a> · <a href="confidentialite.html">Confidentialité</a><br>
+    <a href="https://www.instagram.com/splice_lux/" target="_blank" rel="noopener">@splice_lux</a> · <a href="mailto:contact@splice-agency.com">contact@splice-agency.com</a> · <a href="https://wa.me/352621229300?text=Bonjour%20SPLICE%2C%20je%20souhaite%20un%20diagnostic%20croissance%20pour%20mon%20%C3%A9tablissement." target="_blank" rel="noopener" data-source="footer">WhatsApp +352 621 229 300</a> · <a href="/confidentialite.html">Confidentialité</a> · <a href="/mentions-legales.html">Mentions légales</a><br>
     © 2026 SPLICE · Luxembourg · Hugo &amp; Dylan associés
   </div>
 </footer>
@@ -805,41 +824,46 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 <script>
 const clamp=(v,lo,hi)=>Math.min(hi,Math.max(lo,v));
 
-/* hero video: 1728x972 sur grand écran, 1080x1924 sur mobile, rien en mouvement réduit.
-   Chaque définition existe en H.265 et en H.264. Le H.265 pèse deux fois moins à qualité
-   égale : on le sert quand le navigateur annonce savoir le décoder, sinon le H.264. */
+/* hero vidéo : à la demande uniquement. Aucune requête vers les fichiers MP4 tant que le visiteur
+   n'a pas cliqué sur « Lancer la vidéo » (preload="none", <source> sans attribut src au chargement).
+   Définitions : 1728x972 sur grand écran, 1080x1924 sur mobile. Chacune existe en H.265 et en H.264 ;
+   on sert le H.265 quand le navigateur annonce savoir le décoder, sinon le H.264. */
 const heroVideo=document.getElementById('heroVideo');
 const heroSource=heroVideo.querySelector('source');
-const reduceMQ=matchMedia('(prefers-reduced-motion: reduce)');
+const videoToggle=document.getElementById('videoToggle');
 const wideMQ=matchMedia('(min-width: 561px)');
 let useHevc=heroVideo.canPlayType('video/mp4; codecs="hvc1.1.6.L93.B0"')==='probably';
+let videoRequested=false;
 function heroSrc(){
   const d=heroSource.dataset;
   if(wideMQ.matches)return useHevc?d.srcHevc:d.src;
   return useHevc?d.srcMobileHevc:d.srcMobile;
 }
-function applyVideoMotion(){
-  if(reduceMQ.matches){heroVideo.pause();return;}
+function startHeroVideo(){
+  videoRequested=true;
   const want=heroSrc();
   if(heroSource.getAttribute('src')!==want){heroSource.src=want;heroVideo.load();}
   const p=heroVideo.play();if(p&&p.catch)p.catch(()=>{});
 }
+function syncVideoBtn(){
+  const on=videoRequested&&!heroVideo.paused;
+  videoToggle.textContent=on?'Mettre la vidéo en pause':'Lancer la vidéo';
+  videoToggle.setAttribute('aria-pressed',on?'true':'false');
+}
+videoToggle.addEventListener('click',()=>{
+  if(videoRequested&&!heroVideo.paused){heroVideo.pause();}else{startHeroVideo();}
+});
+heroVideo.addEventListener('play',syncVideoBtn);
+heroVideo.addEventListener('pause',syncVideoBtn);
 /* filet de sécurité : si le H.265 annoncé ne se lit finalement pas, on bascule une
    seule fois en H.264 plutôt que de laisser l'affiche figée. */
 heroVideo.addEventListener('error',()=>{
-  if(!useHevc)return;
-  useHevc=false;applyVideoMotion();
+  if(!useHevc||!videoRequested)return;
+  useHevc=false;startHeroVideo();
 },true);
-wideMQ.addEventListener('change',applyVideoMotion);
-reduceMQ.addEventListener('change',applyVideoMotion);
-/* pendant l'intro, on ne télécharge pas la vidéo : elle n'est pas visible et elle
-   encombrerait le chargement. Elle démarre à la fermeture de l'intro.
-   Même condition que le script de l'intro plus bas : si l'intro ne joue pas (visite
-   déjà faite dans la session, ou mouvement réduit), elle ne fermera jamais et ne
-   lancera donc rien, il faut démarrer la vidéo tout de suite. */
-const introWillPlay=document.getElementById('intro')&&!document.documentElement.classList.contains('no-intro');
-if(introWillPlay){window.__startHero=applyVideoMotion;}
-else{applyVideoMotion();}
+/* si la taille d'écran change après un lancement volontaire, on recharge la bonne définition */
+wideMQ.addEventListener('change',()=>{if(videoRequested&&!heroVideo.paused)startHeroVideo();});
+document.getElementById('heroTools').hidden=false;
 
 /* nav */
 const nav=document.getElementById('nav');
@@ -920,10 +944,6 @@ form.addEventListener('submit',async e=>{
   }
 });
 
-/* reveals */
-const rio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}})},{threshold:0.15});
-document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
-
 /* bande partenaires : on ne fait défiler que si les logos dépassent la largeur,
    sinon ils restent centrés. Ajouter des logos suffit à activer le défilement. */
 (function(){
@@ -956,34 +976,59 @@ document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
 })();
 
 
-/* intro Escoffier : une seule fois par session, sortie à tout moment */
+/* intro Escoffier : lecture volontaire uniquement (bouton « Voir l'intro »). Aucun minuteur de fermeture :
+   elle reste affichée jusqu'à « Fermer », Échap ou un clic. Le bouton n'existe pas en mouvement réduit. */
 (function(){
   const intro=document.getElementById('intro');
-  if(!intro||document.documentElement.classList.contains('no-intro')){if(intro)intro.remove();return;}
-  document.body.classList.add('intro-lock');
-  let closed=false;
-  const t=setTimeout(close,7500);
+  const open=document.getElementById('introPlay');
+  const skip=document.getElementById('skip');
+  if(!intro||!open||!skip)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){open.hidden=true;return;}
+  let playing=false;
+  function show(){
+    if(playing)return; playing=true;
+    intro.classList.remove('done');
+    intro.classList.add('playing');
+    document.body.classList.add('intro-lock');
+    skip.textContent='Passer';
+    skip.focus({preventScroll:true});
+  }
   function close(){
-    if(closed)return; closed=true;
-    clearTimeout(t);
-    try{sessionStorage.setItem('spliceIntroSeen','1');}catch(e){}
+    if(!playing)return; playing=false;
     intro.classList.add('done');
     document.body.classList.remove('intro-lock');
-    if(window.__startHero)window.__startHero();
-    setTimeout(()=>intro.remove(),1000);
+    const end=e=>{if(e.target!==intro||e.propertyName!=='opacity')return;intro.removeEventListener('transitionend',end);if(!playing)intro.classList.remove('playing');};
+    intro.addEventListener('transitionend',end);
+    open.focus({preventScroll:true});
   }
-  const skip=document.getElementById('skip');
-  if(skip)skip.addEventListener('click',close);
+  open.addEventListener('click',show);
+  skip.addEventListener('click',e=>{e.stopPropagation();close();});
   intro.addEventListener('click',close);
-  addEventListener('keydown',e=>{if(e.key==='Escape'||e.key===' '||e.key==='Enter')close()},{once:false});
-  addEventListener('wheel',close,{once:true,passive:true});
-  addEventListener('touchmove',close,{once:true,passive:true});
+  intro.querySelector('.intro-mark').addEventListener('animationend',()=>{skip.textContent='Fermer';});
+  addEventListener('keydown',e=>{
+    if(!playing)return;
+    if(e.key==='Escape')close();
+    else if(e.key==='Tab'){e.preventDefault();skip.focus();}
+  });
 })();
 
 /* pause heavy animations on hidden tab */
 addEventListener('visibilitychange',()=>document.body.classList.toggle('paused',document.hidden));
 </script>
 
+<script>
+/* reveals : amélioration progressive. Le contenu est visible par défaut (sans JS) ; ici on n'anime que
+   ce qui existe. Si l'observateur n'est pas disponible, ou si ce bloc échoue, on retire .js : tout reste visible. */
+(function(){
+  var d=document.documentElement;
+  try{
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if(!('IntersectionObserver' in window)){d.classList.remove('js');return;}
+    var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target);}});},{threshold:0.15});
+    els.forEach(function(el){rio.observe(el);});
+  }catch(err){d.classList.remove('js');}
+})();
+</script>
 <!-- Canal WhatsApp : bouton flottant. data-source sert à brancher un suivi plus tard sans rouvrir le HTML. -->
 <a class="wa-float" href="https://wa.me/352621229300?text=Bonjour%20SPLICE%2C%20je%20souhaite%20un%20diagnostic%20croissance%20pour%20mon%20%C3%A9tablissement." target="_blank" rel="noopener" data-source="floating"
    aria-label="Écrire à SPLICE sur WhatsApp au +352 621 229 300">
