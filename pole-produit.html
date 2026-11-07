@@ -194,6 +194,11 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
 .wa-float svg{width:30px;height:30px;display:block}
 @media (max-width:560px){.wa-float{right:16px;bottom:16px}}
 @media print{.wa-float{display:none !important}}
+/* ===== Photo de pôle =====
+   Bandeau photo pleine largeur sous le titre. Images dans assets/poles/ (WebP 1200 et 2400 px). */
+.pphoto{position:relative;z-index:2;margin:-40px 0 0}
+.pphoto img{display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;border-radius:6px;border:1px solid var(--accent-muted);background:var(--panel)}
+@media (max-width:560px){.pphoto{margin-top:-60px}.pphoto img{aspect-ratio:4/3}}
 </style>
 </head>
 <body>
@@ -231,6 +236,12 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
     </div>
   </div>
 </header>
+
+<figure class="pphoto">
+  <div class="wrap">
+    <img src="assets/poles/produit-1200.webp" srcset="assets/poles/produit-1200.webp 1200w, assets/poles/produit-2400.webp 2400w" sizes="(max-width:1180px) 100vw, 1100px" width="2400" height="1340" style="object-position:45% 55%" loading="lazy" decoding="async" alt="Mains d’un chef qui dresse une salade dans un bol en laiton à côté d’une balance de cuisine dorée, d’une assiette dressée et d’un carnet en cuir.">
+  </div>
+</figure>
 
 <!-- PROBLEMS -->
 <section id="problemes">
