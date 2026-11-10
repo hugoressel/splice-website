@@ -324,7 +324,7 @@ body.intro-lock{overflow:hidden}
 .founder:hover{border-color:rgba(200,169,110,.32)}
 .founder .m-avatar{width:84px;height:84px;overflow:hidden;border-radius:50%;border:1px solid var(--accent-muted);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:19px;color:var(--accent);margin-bottom:18px}
 .founder .m-avatar picture{display:block;width:100%;height:100%}
-.founder .m-avatar img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--fx) 18%;transform-origin:var(--fx) 50%;transform:translateX(calc(50% - var(--fx))) scale(2.2)}
+.founder .m-avatar img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--fx) var(--fy,18%);transform-origin:var(--fx) 50%;transform:translateX(calc(50% - var(--fx))) scale(var(--sc,2.2))}
 .founder .m-name{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;margin-bottom:5px}
 .founder .m-role{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary)}
 .specialists{margin-top:16px;border:1px dashed var(--accent-muted);border-radius:8px;padding:20px 24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
@@ -588,7 +588,7 @@ footer{border-top:1px solid var(--accent-muted);padding:50px 40px;display:flex;j
         <p class="reveal d3 story-sign">SPLICE, c’est ça. Pas une agence qui a choisi la restauration comme niche : des restaurateurs qui connaissent le métier de l’intérieur et aident d’autres restaurateurs à reprendre le contrôle, et à remplir leurs tables.</p>
       </div>
       <div class="founders reveal d3">
-        <div class="founder"><div class="m-avatar" style="--fx:36%"><picture><source type="image/webp" srcset="assets/portrait-hugo-480.webp"><img src="assets/portrait-hugo.jpg" width="496" height="1168" alt="Hugo, co-fondateur de SPLICE" loading="lazy" decoding="async"></picture></div><div class="m-name">Hugo</div><div class="m-role">Co-fondateur · Digital &amp; Ops</div></div>
+        <div class="founder"><div class="m-avatar" style="--fx:36%;--sc:1.85;--fy:20%"><picture><source type="image/webp" srcset="assets/portrait-hugo-480.webp"><img src="assets/portrait-hugo.jpg" width="496" height="1168" alt="Hugo, co-fondateur de SPLICE" loading="lazy" decoding="async"></picture></div><div class="m-name">Hugo</div><div class="m-role">Co-fondateur · Digital &amp; Ops</div></div>
         <div class="founder"><div class="m-avatar" style="--fx:66%"><picture><source type="image/webp" srcset="assets/portrait-dylan-480.webp"><img src="assets/portrait-dylan.jpg" width="496" height="1168" alt="Dylan, co-fondateur de SPLICE" loading="lazy" decoding="async"></picture></div><div class="m-name">Dylan</div><div class="m-role">Co-fondateur · Commercial &amp; Gestion</div></div>
       </div>
       <div class="specialists reveal d3">
