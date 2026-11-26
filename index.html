@@ -28,7 +28,15 @@
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/syne.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/dm-sans.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jetbrains-mono.woff2" crossorigin>
-<style>@font-face{font-family:'Syne';font-style:normal;font-weight:700 800;font-display:swap;src:url(assets/fonts/syne.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'DM Sans';font-style:normal;font-weight:300 400;font-display:swap;src:url(assets/fonts/dm-sans.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/jetbrains-mono.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}</style>
+<style>@font-face{font-family:'Syne';font-style:normal;font-weight:700 800;font-display:swap;src:url(assets/fonts/syne.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'DM Sans';font-style:normal;font-weight:300 400;font-display:swap;src:url(assets/fonts/dm-sans.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/jetbrains-mono.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}.mus-btn{position:fixed;left:24px;bottom:24px;z-index:90;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);background:rgba(11,10,8,.72);border:1px solid var(--accent-muted);cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:color .25s,border-color .25s,transform .25s}
+.mus-btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+.mus-btn svg{width:22px;height:22px;display:block}
+.mus-btn .off{display:none}
+.mus-btn[aria-pressed="false"] .on{display:none}
+.mus-btn[aria-pressed="false"] .off{display:block}
+@media (max-width:560px){.mus-btn{left:16px;bottom:16px}}
+@media print{.mus-btn{display:none !important}}
+</style>
 <!-- TODO-HUGO : ajouter "address" (PostalAddress) et "logo" ici uniquement une fois l'adresse confirmée et un fichier logo officiel publié. Rien n'est inventé en attendant. -->
 <script type="application/ld+json">
 {
@@ -1030,6 +1038,55 @@ addEventListener('visibilitychange',()=>document.body.classList.toggle('paused',
   function maj(){wa.classList.toggle('wa-hide',etroit.matches&&visible);}
   new IntersectionObserver(function(e){visible=e[0].isIntersecting;maj();},{threshold:0}).observe(envoi);
   etroit.addEventListener('change',maj);
+})();
+</script>
+<!-- Musique d'ambiance : lecture en boucle, son déclenché au premier geste du visiteur (les navigateurs interdisent le son automatique). -->
+<audio id="musAudio" src="assets/musique-ambiance.mp3" loop preload="none"></audio>
+<button type="button" class="mus-btn" id="musBtn" aria-pressed="false" aria-label="Activer la musique d'ambiance">
+  <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z"/><path d="M15.5 9a4 4 0 010 6"/><path d="M18 6.5a7.5 7.5 0 010 11"/></svg>
+  <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+</button>
+<script>
+(function(){
+  var a=document.getElementById('musAudio'),b=document.getElementById('musBtn');
+  if(!a||!b)return;
+  var VOL=.35,KEY='splice-musique',muted=false,fade=null;
+  try{muted=localStorage.getItem(KEY)==='off';}catch(e){}
+  function ui(on){b.setAttribute('aria-pressed',on?'true':'false');b.setAttribute('aria-label',on?'Couper la musique d\u2019ambiance':'Activer la musique d\u2019ambiance');}
+  function ramp(to,done){
+    clearInterval(fade);
+    fade=setInterval(function(){
+      var d=to-a.volume;
+      if(Math.abs(d)<.03){a.volume=to;clearInterval(fade);if(done)done();return;}
+      a.volume=Math.max(0,Math.min(1,a.volume+(d>0?.03:-.03)));
+    },60);
+  }
+  function play(){
+    a.volume=0;
+    var p=a.play();
+    if(p&&p.then){p.then(function(){ui(true);ramp(VOL);}).catch(function(){ui(false);});}
+    else{ui(true);ramp(VOL);}
+  }
+  function stop(){ui(false);ramp(0,function(){a.pause();});}
+  b.addEventListener('click',function(e){
+    e.stopPropagation();
+    if(a.paused){try{localStorage.setItem(KEY,'on');}catch(x){}muted=false;play();}
+    else{try{localStorage.setItem(KEY,'off');}catch(x){}muted=true;stop();}
+  });
+  /* premier geste du visiteur (clic, touche, toucher) : la musique démarre, sauf s'il l'a coupée */
+  function first(e){
+    if(e.target&&b.contains&&b.contains(e.target))return;
+    ['pointerdown','keydown','touchend'].forEach(function(t){removeEventListener(t,first,true);});
+    if(!muted&&a.paused)play();
+  }
+  ['pointerdown','keydown','touchend'].forEach(function(t){addEventListener(t,first,true);});
+  if(!muted)play();
+  /* pause quand l'onglet est caché, reprise au retour si le son était actif */
+  var was=false;
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden){was=!a.paused;if(was)a.pause();}
+    else if(was&&!muted){play();}
+  });
 })();
 </script>
 </body>
